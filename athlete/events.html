@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events | Sports Academy</title>
+    <link rel="stylesheet" href="athlete.css" />
+    <script src="js/athlete.js" defer></script>
+  </head>
+
+  <body data-page="events">
+    <div class="app-shell">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <a href="dashboard.html" class="sidebar-brand">
+          <img
+            src="../assets/logo.jpeg"
+            alt="Sports Academy logo"
+            class="sidebar-logo"
+          />
+          <span class="sidebar-brand-name">Sports Academy</span>
+        </a>
+
+        <nav class="nav-list" aria-label="Main navigation">
+          <a href="dashboard.html" class="nav-item">
+            <span>Dashboard</span>
+          </a>
+          <a href="courses.html" class="nav-item">
+            <span>My Courses</span>
+          </a>
+          <a href="statistics.html" class="nav-item">
+            <span>Statistics</span>
+          </a>
+          <a href="schedule.html" class="nav-item">
+            <span>Schedule</span>
+          </a>
+          <a href="events.html" class="nav-item active" aria-current="page">
+            <span>Events</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <p>Sports Academy Management System</p>
+        </div>
+      </aside>
+
+      <!-- Main area -->
+      <div class="main-area">
+        <!-- Topbar -->
+        <header class="topbar">
+          <div class="greeting">
+            <span class="eyebrow">ATHLETE PORTAL</span>
+            <h1>Academy Events</h1>
+          </div>
+
+          <div class="topbar-actions">
+            <!-- Notifications -->
+            <div class="notif">
+              <button
+                type="button"
+                class="icon-btn notification-button"
+                id="notification-toggle"
+                aria-label="Open notifications"
+                aria-expanded="false"
+              >
+                <svg
+                  class="notification-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="21"
+                  height="21"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"
+                  ></path>
+                  <path d="M10 21h4"></path>
+                </svg>
+                <span class="badge" id="notification-count">0</span>
+              </button>
+
+              <div class="notif-panel" id="notification-panel" hidden>
+                <div class="notif-head">
+                  <strong>Notifications</strong>
+                  <button
+                    type="button"
+                    class="link-btn"
+                    id="mark-notifications-read"
+                  >
+                    Mark all read
+                  </button>
+                </div>
+                <div id="notification-list">
+                  <p class="empty-state">You're all caught up.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Profile -->
+            <div class="profile-wrap">
+              <button
+                type="button"
+                class="profile-btn"
+                id="profile-toggle"
+                aria-expanded="false"
+                aria-label="Open athlete profile"
+              >
+                <span class="avatar" id="athlete-avatar">A</span>
+                <span class="profile-name" id="athlete-name">Athlete</span>
+                <span aria-hidden="true">▾</span>
+              </button>
+
+              <div class="profile-panel" id="profile-panel" hidden>
+                <div class="profile-head">
+                  <span class="avatar" id="profile-avatar">A</span>
+                  <div class="profile-details">
+                    <strong id="profile-display-name">Athlete</strong>
+                    <span id="profile-sport">Sports Academy</span>
+                    <small id="profile-member-id">Member ID: SA-001</small>
+                  </div>
+                </div>
+                <a href="dashboard.html" class="btn btn-ghost btn-small">
+                  Back to Dashboard
+                </a>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Page content -->
+        <main class="content">
+          <section class="page-intro">
+            <div>
+              <span class="eyebrow">COMPETE • PARTICIPATE • ACHIEVE</span>
+              <h2>Discover Academy Events</h2>
+              <p>
+                Explore upcoming tournaments, competitions, trials and other
+                sports academy activities.
+              </p>
+            </div>
+          </section>
+
+          <!-- Event summary -->
+          <section class="stats-grid" aria-label="Event summary">
+            <article class="stat-card">
+              <div class="stat-icon">▦</div>
+              <p class="stat-label">All Events</p>
+              <h3 class="stat-value" id="event-total-count">0</h3>
+              <p class="stat-note">Events in the academy</p>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-icon">◷</div>
+              <p class="stat-label">Upcoming Events</p>
+              <h3 class="stat-value" id="event-upcoming-count">0</h3>
+              <p class="stat-note">Events scheduled ahead</p>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-icon">✓</div>
+              <p class="stat-label">My Registrations</p>
+              <h3 class="stat-value" id="event-registered-count">0</h3>
+              <p class="stat-note">Events you've joined</p>
+            </article>
+          </section>
+
+          <!-- My registrations -->
+          <section class="panel">
+            <div class="panel-head">
+              <div>
+                <h2>My Registered Events</h2>
+                <p class="panel-sub">
+                  Keep track of events you've registered for.
+                </p>
+              </div>
+              <span class="tag" id="my-event-count">0 registered</span>
+            </div>
+
+            <div class="event-grid" id="my-events-list">
+              <div class="empty-state">
+                You haven't registered for any events yet.
+              </div>
+            </div>
+          </section>
+
+          <!-- Event filters -->
+          <section class="panel">
+            <div class="panel-head">
+              <div>
+                <h2>Explore Events</h2>
+                <p class="panel-sub">Find events that match your interests.</p>
+              </div>
+            </div>
+
+            <div class="event-filters">
+              <div class="filter-field search-field">
+                <label for="event-search">Search Events</label>
+                <input
+                  type="search"
+                  id="event-search"
+                  placeholder="Search by event name, sport or location..."
+                />
+              </div>
+
+              <div class="filter-field">
+                <label for="event-sport-filter">Sport</label>
+                <select id="event-sport-filter">
+                  <option value="all">All Sports</option>
+                </select>
+              </div>
+
+              <div class="filter-field">
+                <label for="event-status-filter">Event Status</label>
+                <select id="event-status-filter">
+                  <option value="all">All Events</option>
+                  <option value="upcoming">Upcoming</option>
+                  <option value="ongoing">Ongoing</option>
+                  <option value="completed">Completed</option>
+                </select>
+              </div>
+
+              <div class="filter-field">
+                <label for="event-registration-filter">Registration</label>
+                <select id="event-registration-filter">
+                  <option value="all">All Registration Types</option>
+                  <option value="registered">My Registrations</option>
+                  <option value="available">Not Registered</option>
+                </select>
+              </div>
+
+              <button
+                type="button"
+                class="btn btn-ghost filter-reset"
+                id="reset-event-filters"
+              >
+                Reset Filters
+              </button>
+            </div>
+          </section>
+
+          <!-- Available events -->
+          <section class="panel">
+            <div class="panel-head">
+              <div>
+                <h2>All Events</h2>
+                <p class="panel-sub">
+                  Browse event details and registration availability.
+                </p>
+              </div>
+              <span class="tag" id="event-results-count">0 events</span>
+            </div>
+
+            <div class="event-grid" id="event-list">
+              <div class="empty-state">Academy events will appear here.</div>
+            </div>
+
+            <div class="empty-state" id="no-events-message" hidden>
+              <h3>No events found</h3>
+              <p>Try changing your search or filters.</p>
+              <button
+                type="button"
+                class="btn btn-ghost"
+                id="clear-event-filters"
+              >
+                Clear Filters
+              </button>
+            </div>
+          </section>
+
+          <!-- Event details dialog -->
+          <dialog class="event-dialog" id="event-details-dialog">
+            <div class="event-dialog-content">
+              <div class="panel-head">
+                <div>
+                  <span class="eyebrow">EVENT DETAILS</span>
+                  <h2 id="event-dialog-title">Event Name</h2>
+                </div>
+                <button
+                  type="button"
+                  class="icon-btn"
+                  id="close-event-dialog"
+                  aria-label="Close event details"
+                >
+                  ✕
+                </button>
+              </div>
+
+              <div id="event-dialog-body"></div>
+
+              <div class="event-dialog-actions">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  id="event-dialog-register"
+                >
+                  Register for Event
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-ghost"
+                  id="event-dialog-cancel"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </dialog>
+
+          <div class="demo-note">
+            <strong>Event information</strong>
+            <p>
+              This is a frontend-only prototype. Event registrations will be
+              stored temporarily in your browser and will not be submitted to a
+              server.
+            </p>
+          </div>
+
+          <footer class="page-footer">Sports Academy Management System</footer>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Manage athlete records in the Sports Academy Management System."
+    />
+    <title>Athlete Management | Admin Portal</title>
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body>
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo">SA</div>
+        <div>
+          <h2>Sports Academy</h2>
+          <p>Management System</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Admin navigation">
+        <p class="nav-heading">MAIN MENU</p>
+        <a href="dashboard.html" class="nav-link"
+          ><span class="nav-icon">▦</span> Dashboard</a
+        >
+        <a href="athletes.html" class="nav-link active"
+          ><span class="nav-icon">♙</span> Athletes</a
+        >
+        <a href="coaches.html" class="nav-link"
+          ><span class="nav-icon">♟</span> Coaches</a
+        >
+        <a href="sports.html" class="nav-link"
+          ><span class="nav-icon">◎</span> Sports</a
+        >
+        <a href="courses.html" class="nav-link"
+          ><span class="nav-icon">▤</span> Courses</a
+        >
+        <a href="schedule.html" class="nav-link"
+          ><span class="nav-icon">▦</span> Schedule</a
+        >
+        <a href="attendance.html" class="nav-link"
+          ><span class="nav-icon">✓</span> Attendance</a
+        >
+        <a href="events.html" class="nav-link"
+          ><span class="nav-icon">⚑</span> Events</a
+        >
+        <a href="performance.html" class="nav-link"
+          ><span class="nav-icon">↗</span> Performance</a
+        >
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="admin-mini-profile">
+          <div class="avatar">AD</div>
+          <div>
+            <strong>Administrator</strong>
+            <small>Admin Portal</small>
+          </div>
+        </div>
+        <a href="../mainpage.html" class="nav-link home-link"
+          ><span class="nav-icon">⌂</span> Back to Home</a
+        >
+      </div>
+    </aside>
+
+    <div class="main-wrapper">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button
+            type="button"
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Toggle sidebar"
+            aria-expanded="false"
+          >
+            ☰
+          </button>
+          <div>
+            <p class="breadcrumb">Admin Portal / Management</p>
+            <h1>Athlete Management</h1>
+          </div>
+        </div>
+        <div class="topbar-right">
+          <span class="status-indicator"></span>
+          <span class="admin-label">Administrator</span>
+          <div class="avatar top-avatar">AD</div>
+        </div>
+      </header>
+
+      <main class="dashboard-content">
+        <section class="page-intro">
+          <div>
+            <h2>Manage Athletes</h2>
+            <p>View athlete profiles and maintain academy athlete records.</p>
+          </div>
+          <button type="button" class="btn btn-primary" id="addAthleteBtn">
+            <span>＋</span> Add Athlete
+          </button>
+        </section>
+
+        <section class="stats-grid athlete-stats">
+          <article class="stat-card">
+            <div class="stat-icon stat-blue">♙</div>
+            <div class="stat-info">
+              <p>Total Athletes</p>
+              <h3 id="athleteTotal">0</h3>
+              <span class="stat-caption">All athlete records</span>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-icon stat-teal">✓</div>
+            <div class="stat-info">
+              <p>Active Athletes</p>
+              <h3 id="athleteActive">0</h3>
+              <span class="stat-caption">Currently active</span>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-icon stat-orange">◎</div>
+            <div class="stat-info">
+              <p>Sports Represented</p>
+              <h3 id="athleteSports">0</h3>
+              <span class="stat-caption">Different sports</span>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-icon stat-purple">▤</div>
+            <div class="stat-info">
+              <p>Course Enrolments</p>
+              <h3 id="athleteEnrolments">0</h3>
+              <span class="stat-caption">Recorded enrolments</span>
+            </div>
+          </article>
+        </section>
+
+        <section class="section-block">
+          <div class="section-title-row">
+            <div>
+              <h2>Athlete Directory</h2>
+              <p>Search and filter the demonstration athlete records.</p>
+            </div>
+          </div>
+
+          <div class="filter-panel">
+            <div class="form-group search-group">
+              <label for="athleteSearch">Search athletes</label>
+              <input
+                type="search"
+                id="athleteSearch"
+                placeholder="Search by name, ID, email or sport..."
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="sportFilter">Sport</label>
+              <select id="sportFilter">
+                <option value="">All sports</option>
+                <option value="Athletics">Athletics</option>
+                <option value="Badminton">Badminton</option>
+                <option value="Basketball">Basketball</option>
+                <option value="Boxing Fitness">Boxing Fitness</option>
+                <option value="Cricket">Cricket</option>
+                <option value="Football">Football</option>
+                <option value="Swimming">Swimming</option>
+                <option value="Tennis">Tennis</option>
+                <option value="Volleyball">Volleyball</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="statusFilter">Status</label>
+              <select id="statusFilter">
+                <option value="">All statuses</option>
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+              </select>
+            </div>
+
+            <button
+              type="button"
+              class="btn btn-secondary"
+              id="resetAthleteFilters"
+            >
+              Reset Filters
+            </button>
+          </div>
+
+          <div class="table-panel">
+            <div class="table-heading">
+              <div>
+                <h3>All Athletes</h3>
+                <p id="athleteResultCount">Showing 0 athletes</p>
+              </div>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                id="exportAthletesBtn"
+              >
+                Export CSV
+              </button>
+            </div>
+
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Athlete</th>
+                    <th>Athlete ID</th>
+                    <th>Sport</th>
+                    <th>Age</th>
+                    <th>Course</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="athleteTableBody">
+                  <tr>
+                    <td colspan="7" class="empty-state">
+                      Athlete records will appear here.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <footer class="dashboard-footer">
+          <p>
+            © <span class="current-year">2026</span> Sports Academy Management
+            System
+          </p>
+          <p>Admin Portal · Demonstration Records</p>
+        </footer>
+      </main>
+    </div>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Add/Edit Athlete Modal -->
+    <div class="modal-backdrop" id="athleteModal" hidden>
+      <section
+        class="modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="athleteModalTitle"
+      >
+        <div class="modal-header">
+          <div>
+            <p class="eyebrow">ATHLETE DIRECTORY</p>
+            <h2 id="athleteModalTitle">Add Athlete</h2>
+          </div>
+          <button
+            type="button"
+            class="modal-close"
+            id="closeAthleteModal"
+            aria-label="Close dialog"
+          >
+            ×
+          </button>
+        </div>
+
+        <form id="athleteForm">
+          <input type="hidden" id="athleteRecordId" />
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="athleteName">Full name *</label>
+              <input type="text" id="athleteName" maxlength="80" required />
+            </div>
+
+            <div class="form-group">
+              <label for="athleteUsername">Username</label>
+              <input type="text" id="athleteUsername" maxlength="40" />
+            </div>
+
+            <div class="form-group">
+              <label for="athleteEmail">Email</label>
+              <input type="email" id="athleteEmail" maxlength="120" />
+            </div>
+
+            <div class="form-group">
+              <label for="athleteAge">Age</label>
+              <input type="number" id="athleteAge" min="5" max="100" />
+            </div>
+
+            <div class="form-group">
+              <label for="athleteSport">Sport *</label>
+              <select id="athleteSport" required>
+                <option value="">Select sport</option>
+                <option>Athletics</option>
+                <option>Badminton</option>
+                <option>Basketball</option>
+                <option>Boxing Fitness</option>
+                <option>Cricket</option>
+                <option>Fitness</option>
+                <option>Football</option>
+                <option>Gymnastics</option>
+                <option>Rugby</option>
+                <option>Swimming</option>
+                <option>Table Tennis</option>
+                <option>Tennis</option>
+                <option>Volleyball</option>
+                <option>Yoga</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="athleteCourse">Course</label>
+              <input
+                type="text"
+                id="athleteCourse"
+                maxlength="100"
+                placeholder="e.g. Basketball Essentials"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="athleteStatus">Status</label>
+              <select id="athleteStatus">
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="athleteJoined">Joining date</label>
+              <input type="date" id="athleteJoined" />
+            </div>
+          </div>
+
+          <p id="athleteFormError" class="error-message" role="alert"></p>
+
+          <div class="modal-actions">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              id="cancelAthleteForm"
+            >
+              Cancel
+            </button>
+            <button type="submit" class="btn btn-primary" id="saveAthleteBtn">
+              Save Athlete
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <script src="js/admin.js"></script>
+  </body>
+</html>

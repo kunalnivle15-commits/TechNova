@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Manage sports events and competitions in the Sports Academy Management System."
+    />
+    <title>Events Management | Admin Portal</title>
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body>
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo">SA</div>
+        <div>
+          <h2>Sports Academy</h2>
+          <p>Management System</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Admin navigation">
+        <p class="nav-heading">MAIN MENU</p>
+        <a href="dashboard.html" class="nav-link"
+          ><span class="nav-icon">▦</span> Dashboard</a
+        >
+        <a href="athletes.html" class="nav-link"
+          ><span class="nav-icon">♙</span> Athletes</a
+        >
+        <a href="coaches.html" class="nav-link"
+          ><span class="nav-icon">♟</span> Coaches</a
+        >
+        <a href="sports.html" class="nav-link"
+          ><span class="nav-icon">◎</span> Sports</a
+        >
+        <a href="courses.html" class="nav-link"
+          ><span class="nav-icon">▤</span> Courses</a
+        >
+        <a href="schedule.html" class="nav-link"
+          ><span class="nav-icon">▦</span> Schedule</a
+        >
+        <a href="attendance.html" class="nav-link"
+          ><span class="nav-icon">✓</span> Attendance</a
+        >
+        <a href="events.html" class="nav-link active"
+          ><span class="nav-icon">⚑</span> Events</a
+        >
+        <a href="performance.html" class="nav-link"
+          ><span class="nav-icon">↗</span> Performance</a
+        >
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="admin-mini-profile">
+          <div class="avatar">AD</div>
+          <div>
+            <strong>Administrator</strong>
+            <small>Admin Portal</small>
+          </div>
+        </div>
+        <a href="../mainpage.html" class="nav-link home-link">
+          <span class="nav-icon">⌂</span> Back to Home
+        </a>
+      </div>
+    </aside>
+
+    <div class="main-wrapper">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button
+            type="button"
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Toggle sidebar"
+            aria-expanded="false"
+          >
+            ☰
+          </button>
+          <div>
+            <p class="breadcrumb">Admin Portal / Activities</p>
+            <h1>Events Management</h1>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <span class="status-indicator"></span>
+          <span class="admin-label">Administrator</span>
+          <div class="avatar top-avatar">AD</div>
+        </div>
+      </header>
+
+      <main class="dashboard-content">
+        <section class="page-intro">
+          <div>
+            <h2>Manage Sports Events</h2>
+            <p>
+              Organise tournaments, competitions, championships, and academy
+              activities.
+            </p>
+          </div>
+
+          <button type="button" class="btn btn-primary" id="addEventBtn">
+            <span>＋</span> Create Event
+          </button>
+        </section>
+
+        <!-- Event Statistics -->
+        <section class="stats-grid">
+          <article class="stat-card">
+            <div class="stat-icon stat-blue">⚑</div>
+            <div class="stat-info">
+              <p>Total Events</p>
+              <h3 id="eventTotal">0</h3>
+              <span class="stat-caption">All event records</span>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-icon stat-teal">✓</div>
+            <div class="stat-info">
+              <p>Upcoming Events</p>
+              <h3 id="eventUpcoming">0</h3>
+              <span class="stat-caption">Events scheduled ahead</span>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-icon stat-orange">♙</div>
+            <div class="stat-info">
+              <p>Total Registrations</p>
+              <h3 id="eventRegistrations">0</h3>
+              <span class="stat-caption">Recorded participants</span>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-icon stat-purple">◎</div>
+            <div class="stat-info">
+              <p>Completed Events</p>
+              <h3 id="eventCompleted">0</h3>
+              <span class="stat-caption">Events marked completed</span>
+            </div>
+          </article>
+        </section>
+
+        <!-- Filters -->
+        <section class="section-block">
+          <div class="section-title-row">
+            <div>
+              <h2>Event Directory</h2>
+              <p>View and manage the academy's sporting activities.</p>
+            </div>
+          </div>
+
+          <div class="filter-panel">
+            <div class="form-group search-group">
+              <label for="eventSearch">Search events</label>
+              <input
+                type="search"
+                id="eventSearch"
+                placeholder="Search event, sport, or venue..."
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="eventTypeFilter">Event type</label>
+              <select id="eventTypeFilter">
+                <option value="">All types</option>
+                <option value="Tournament">Tournament</option>
+                <option value="Competition">Competition</option>
+                <option value="Championship">Championship</option>
+                <option value="Workshop">Workshop</option>
+                <option value="Fitness Camp">Fitness Camp</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="eventSportFilter">Sport</label>
+              <select id="eventSportFilter">
+                <option value="">All sports</option>
+                <option>Athletics</option>
+                <option>Badminton</option>
+                <option>Basketball</option>
+                <option>Boxing Fitness</option>
+                <option>Cricket</option>
+                <option>Fitness</option>
+                <option>Football</option>
+                <option>Gymnastics</option>
+                <option>Rugby</option>
+                <option>Swimming</option>
+                <option>Table Tennis</option>
+                <option>Tennis</option>
+                <option>Volleyball</option>
+                <option>Yoga</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="eventStatusFilter">Status</label>
+              <select id="eventStatusFilter">
+                <option value="">All statuses</option>
+                <option value="Upcoming">Upcoming</option>
+                <option value="Ongoing">Ongoing</option>
+                <option value="Completed">Completed</option>
+                <option value="Cancelled">Cancelled</option>
+              </select>
+            </div>
+
+            <button
+              type="button"
+              class="btn btn-secondary"
+              id="resetEventFilters"
+            >
+              Reset Filters
+            </button>
+          </div>
+
+          <!-- Event Table -->
+          <div class="table-panel">
+            <div class="table-heading">
+              <div>
+                <h3>All Events</h3>
+                <p id="eventResultCount">Showing 0 events</p>
+              </div>
+
+              <button
+                type="button"
+                class="btn btn-secondary"
+                id="exportEventsBtn"
+              >
+                Export CSV
+              </button>
+            </div>
+
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Event</th>
+                    <th>Event ID</th>
+                    <th>Type</th>
+                    <th>Sport</th>
+                    <th>Event Date</th>
+                    <th>Venue</th>
+                    <th>Registrations</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+
+                <tbody id="eventTableBody">
+                  <tr>
+                    <td colspan="9" class="empty-state">
+                      Event records will appear here.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <footer class="dashboard-footer">
+          <p>
+            © <span class="current-year">2026</span> Sports Academy Management
+            System
+          </p>
+          <p>Admin Portal · Demonstration Records</p>
+        </footer>
+      </main>
+    </div>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Add/Edit Event Modal -->
+    <div class="modal-backdrop" id="eventModal" hidden>
+      <section
+        class="modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="eventModalTitle"
+      >
+        <div class="modal-header">
+          <div>
+            <p class="eyebrow">EVENT ORGANISATION</p>
+            <h2 id="eventModalTitle">Create Event</h2>
+          </div>
+
+          <button
+            type="button"
+            class="modal-close"
+            id="closeEventModal"
+            aria-label="Close dialog"
+          >
+            ×
+          </button>
+        </div>
+
+        <form id="eventForm">
+          <input type="hidden" id="eventRecordId" />
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="eventName">Event name *</label>
+              <input
+                type="text"
+                id="eventName"
+                maxlength="120"
+                placeholder="e.g. Annual Sports Championship"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="eventType">Event type *</label>
+              <select id="eventType" required>
+                <option value="">Select event type</option>
+                <option value="Tournament">Tournament</option>
+                <option value="Competition">Competition</option>
+                <option value="Championship">Championship</option>
+                <option value="Workshop">Workshop</option>
+                <option value="Fitness Camp">Fitness Camp</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="eventSport">Sport *</label>
+              <select id="eventSport" required>
+                <option value="">Select sport</option>
+                <option>Athletics</option>
+                <option>Badminton</option>
+                <option>Basketball</option>
+                <option>Boxing Fitness</option>
+                <option>Cricket</option>
+                <option>Fitness</option>
+                <option>Football</option>
+                <option>Gymnastics</option>
+                <option>Rugby</option>
+                <option>Swimming</option>
+                <option>Table Tennis</option>
+                <option>Tennis</option>
+                <option>Volleyball</option>
+                <option>Yoga</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="eventDate">Event date *</label>
+              <input type="date" id="eventDate" required />
+            </div>
+
+            <div class="form-group">
+              <label for="eventStartTime">Start time</label>
+              <input type="time" id="eventStartTime" />
+            </div>
+
+            <div class="form-group">
+              <label for="eventEndDate">End date</label>
+              <input type="date" id="eventEndDate" />
+            </div>
+
+            <div class="form-group">
+              <label for="eventVenue">Venue *</label>
+              <input
+                type="text"
+                id="eventVenue"
+                maxlength="120"
+                placeholder="e.g. Academy Main Ground"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="eventCapacity">Maximum participants</label>
+              <input
+                type="number"
+                id="eventCapacity"
+                min="1"
+                max="100000"
+                placeholder="e.g. 200"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="eventRegistrationsInput">Registrations</label>
+              <input
+                type="number"
+                id="eventRegistrationsInput"
+                min="0"
+                max="100000"
+                value="0"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="eventStatus">Status</label>
+              <select id="eventStatus">
+                <option value="Upcoming">Upcoming</option>
+                <option value="Ongoing">Ongoing</option>
+                <option value="Completed">Completed</option>
+                <option value="Cancelled">Cancelled</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="eventOrganiser">Organiser</label>
+              <input
+                type="text"
+                id="eventOrganiser"
+                maxlength="100"
+                placeholder="Enter organiser name"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="eventEntryFee">Entry fee (₹)</label>
+              <input
+                type="number"
+                id="eventEntryFee"
+                min="0"
+                max="10000000"
+                step="0.01"
+                value="0"
+              />
+            </div>
+
+            <div class="form-group full-width">
+              <label for="eventDescription">Event description</label>
+              <textarea
+                id="eventDescription"
+                rows="3"
+                maxlength="700"
+                placeholder="Describe the event, rules, and activities..."
+              ></textarea>
+            </div>
+          </div>
+
+          <p id="eventFormError" class="error-message" role="alert"></p>
+
+          <div class="modal-actions">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              id="cancelEventForm"
+            >
+              Cancel
+            </button>
+
+            <button type="submit" class="btn btn-primary" id="saveEventBtn">
+              Save Event
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <script src="js/admin.js"></script>
+  </body>
+</html>

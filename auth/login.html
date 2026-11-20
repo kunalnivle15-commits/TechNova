@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Login to the Sports Academy Management System.">
+    <title>Login | Sports Academy Management System</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+    <main class="login-page">
+        <section class="login-card" aria-labelledby="login-title">
+
+            <a href="../mainpage.html" class="brand">
+                <span class="brand-icon">SA</span>
+                <span>Sports Academy<br>Management System</span>
+            </a>
+
+            <div class="login-heading">
+                <p class="eyebrow">WELCOME BACK</p>
+                <h1 id="login-title">Portal Login</h1>
+                <p>Enter your username and choose your role to continue.</p>
+            </div>
+
+            <form id="loginForm">
+
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Enter your username"
+                        autocomplete="username"
+                        maxlength="40"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="role">Select your role</label>
+                    <select id="role" name="role" required>
+                        <option value="">Choose your portal</option>
+                        <option value="athlete">Athlete</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+
+                <p id="errorMessage" class="error-message" role="alert"></p>
+
+                <button type="submit" class="login-button">
+                    Continue to Portal
+                    <span aria-hidden="true">→</span>
+                </button>
+
+            </form>
+
+            <p class="login-note">
+                Frontend demonstration login. No password or account registration is required.
+            </p>
+
+            <a href="../mainpage.html" class="back-link">← Back to Home</a>
+
+        </section>
+    </main>
+
+    <script src="login.js"></script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sports Academy Management System connects athletes, coaches, training schedules and performance records.">
+  <title>Sports Academy Management System</title>
+  <link rel="stylesheet" href="mainpage.css">
+</head>
+<body>
+
+  <header class="site-header" id="top">
+    <nav class="navbar container" aria-label="Main navigation">
+      <a href="#home" class="brand">Sports Academy Management System</a>
+
+      <button class="nav-toggle" id="navToggle" type="button"
+              aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <ul class="nav-links" id="navMenu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="auth/login.html" class="nav-login">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow">Athletes &middot; Coaches &middot; Performance</p>
+          <h1 id="hero-title">Sports Management System</h1>
+          <p class="hero-desc">
+            One platform that connects athletes, coaches, training schedules and
+            performance records. Athletes choose their programme and follow their
+            progress, while coaches organise batches, track attendance and review results.
+          </p>
+          <a href="auth/login.html" class="btn btn-primary">Get Started</a>
+        </div>
+
+        <div class="hero-logo">
+          <img src="assets/logo.jpeg" alt="Sports Academy Management System logo" class="logo-circle">
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features" aria-labelledby="features-title">
+      <div class="container">
+        <header class="section-head">
+          <h2 id="features-title">Features</h2>
+          <p>Everything an academy needs to run training and follow athlete development.</p>
+        </header>
+
+        <div class="feature-grid">
+
+          <article class="card">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+            </div>
+            <h3>Athlete Profiles</h3>
+            <p>Each athlete gets a profile that keeps their details and training information in one place.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
+            </div>
+            <h3>Sports Programme Selection</h3>
+            <p>Athletes browse the available programmes and choose the one that fits their goals.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+            </div>
+            <h3>Training Schedules</h3>
+            <p>Coaches create and manage schedules and allocate athletes to batches.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4h6v3H9zM9 14l2 2 4-4"/></svg>
+            </div>
+            <h3>Attendance Tracking</h3>
+            <p>Record who attended each session and keep a clear attendance history for every batch.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v5a4 4 0 0 1-8 0zM8 6H4v1a3 3 0 0 0 3 3M16 6h4v1a3 3 0 0 1-3 3M12 13v4M8 21h8M10 17h4"/></svg>
+            </div>
+            <h3>Performance Records</h3>
+            <p>Maintain structured performance records so results can be compared over time.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
+            </div>
+            <h3>Progress Dashboard</h3>
+            <p>Dashboards with search and filtering help coaches and athletes follow progress at a glance.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="about" aria-labelledby="about-title">
+      <div class="container narrow">
+        <header class="section-head">
+          <h2 id="about-title">About Us</h2>
+        </header>
+        <p>
+          The Sports Academy Management System is a college project that brings the
+          daily work of a sports academy into one platform. It links athlete profiles
+          with programme selection, training schedules, attendance, performance records
+          and progress tracking, so athletes and coaches work from the same information.
+        </p>
+        <p>
+          The system is being developed in stages, starting with the front end.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="container narrow">
+        <header class="section-head">
+          <h2 id="contact-title">Contact Us</h2>
+        </header>
+        <p>
+          Contact details will be added once the project is deployed. For questions
+          about this project, please reach out to the project team through your
+          institution.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-name">Sports Academy Management System</p>
+      <p>&copy; <span id="year">2026</span> Sports Academy Management System. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="mainpage.js"></script>
+</body>
+</html>

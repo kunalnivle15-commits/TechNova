@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#183B56" />
+
+    <title>Course Details | Sports Academy</title>
+
+    <link rel="stylesheet" href="athlete.css" />
+    <script src="js/athlete.js" defer></script>
+  </head>
+
+  <body data-page="course">
+    <a href="#main-content" class="skip-link"> Skip to main content </a>
+
+    <div class="app-shell">
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <a href="dashboard.html" class="sidebar-brand">
+          <img
+            src="../assets/logo.jpeg"
+            alt="Sports Academy logo"
+            class="sidebar-logo"
+          />
+          <span class="sidebar-brand-name">Sports Academy</span>
+        </a>
+
+        <nav class="nav-list" aria-label="Main navigation">
+          <a href="dashboard.html" class="nav-item">
+            <span>Dashboard</span>
+          </a>
+          <a href="courses.html" class="nav-item active" aria-current="page">
+            <span>My Courses</span>
+          </a>
+          <a href="statistics.html" class="nav-item">
+            <span>Statistics</span>
+          </a>
+          <a href="schedule.html" class="nav-item">
+            <span>Schedule</span>
+          </a>
+          <a href="events.html" class="nav-item">
+            <span>Events</span>
+          </a>
+        </nav>
+        <div class="sidebar-footer">
+          <p>Athlete Portal</p>
+          <span>Sports Academy Management</span>
+        </div>
+      </aside>
+
+      <!-- MAIN AREA -->
+      <div class="main-area">
+        <!-- TOPBAR -->
+        <header class="topbar">
+          <div class="topbar-heading">
+            <p class="topbar-label">ATHLETE PORTAL</p>
+            <h1 class="greeting">Course Details</h1>
+          </div>
+
+          <div class="topbar-actions">
+            <div class="notif">
+              <button
+                type="button"
+                class="icon-btn notification-button"
+                id="notification-toggle"
+                aria-label="Open notifications"
+                aria-expanded="false"
+              >
+                <svg
+                  class="notification-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="21"
+                  height="21"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"
+                  ></path>
+                  <path d="M10 21h4"></path>
+                </svg>
+                <span class="badge" id="notification-count">0</span>
+              </button>
+
+              <section
+                class="notif-panel"
+                id="notification-panel"
+                aria-label="Notifications"
+                hidden
+              >
+                <div class="notif-head">
+                  <h2>Notifications</h2>
+                  <button
+                    type="button"
+                    class="link-btn"
+                    id="mark-notifications-read"
+                  >
+                    Mark all read
+                  </button>
+                </div>
+
+                <p class="demo-note">Demonstration notifications</p>
+
+                <div id="notification-list">
+                  <p class="empty-state">
+                    Your notifications will appear here.
+                  </p>
+                </div>
+              </section>
+            </div>
+
+            <div class="profile-wrap">
+              <button
+                type="button"
+                class="profile-btn"
+                id="profile-toggle"
+                aria-expanded="false"
+                aria-controls="profile-panel"
+              >
+                <span class="avatar" id="athlete-avatar">A</span>
+                <span class="profile-name" id="athlete-name">Athlete</span>
+                <span aria-hidden="true">⌄</span>
+              </button>
+
+              <section
+                class="profile-panel"
+                id="profile-panel"
+                aria-label="Athlete profile"
+                hidden
+              >
+                <div class="profile-head">
+                  <span class="avatar avatar--lg" id="profile-avatar">A</span>
+                  <div>
+                    <h2 id="profile-display-name">Athlete</h2>
+                    <p class="demo-note">Athlete account</p>
+                  </div>
+                </div>
+
+                <dl class="profile-details">
+                  <div>
+                    <dt>Sport</dt>
+                    <dd id="profile-sport">Not assigned</dd>
+                  </div>
+                  <div>
+                    <dt>Member ID</dt>
+                    <dd id="profile-member-id">ATH-001</dd>
+                  </div>
+                </dl>
+
+                <p class="demo-note">
+                  Sample profile information stored in this browser.
+                </p>
+              </section>
+            </div>
+          </div>
+        </header>
+
+        <!-- PAGE CONTENT -->
+        <main class="content" id="main-content">
+          <!-- BREADCRUMB -->
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="dashboard.html">Dashboard</a>
+            <span aria-hidden="true">/</span>
+            <a href="courses.html">Courses</a>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">Course Details</span>
+          </nav>
+
+          <!-- BACK LINK -->
+          <div class="page-actions">
+            <a href="courses.html" class="btn btn-ghost"> ← Back to Courses </a>
+          </div>
+
+          <!-- COURSE DETAILS -->
+          <section class="course-detail-layout">
+            <div class="course-detail-main">
+              <!-- COURSE HERO -->
+              <article class="panel course-hero">
+                <div class="course-hero-top">
+                  <span class="tag tag--course" id="detail-sport">
+                    Sports Training
+                  </span>
+
+                  <span class="status-chip" id="detail-status">
+                    Available
+                  </span>
+                </div>
+
+                <p class="eyebrow" id="detail-course-code">COURSE DETAILS</p>
+
+                <h2 id="detail-course-name">Select a Course</h2>
+
+                <p class="course-description" id="detail-description">
+                  Course information will appear here when you open a course
+                  from the course listing.
+                </p>
+
+                <div class="course-meta-grid">
+                  <div class="course-meta-item">
+                    <span class="meta-label">Training Level</span>
+                    <strong id="detail-level">—</strong>
+                  </div>
+
+                  <div class="course-meta-item">
+                    <span class="meta-label">Duration</span>
+                    <strong id="detail-duration">—</strong>
+                  </div>
+
+                  <div class="course-meta-item">
+                    <span class="meta-label">Coach</span>
+                    <strong id="detail-coach">Not assigned</strong>
+                  </div>
+
+                  <div class="course-meta-item">
+                    <span class="meta-label">Schedule</span>
+                    <strong id="detail-schedule">To be announced</strong>
+                  </div>
+                </div>
+              </article>
+
+              <!-- COURSE OVERVIEW -->
+              <section class="panel">
+                <div class="panel-head">
+                  <div>
+                    <h2>Course Overview</h2>
+                    <p class="panel-sub">
+                      What you can expect from this program.
+                    </p>
+                  </div>
+                </div>
+
+                <div id="detail-overview">
+                  <p>Detailed course information will be displayed here.</p>
+                </div>
+              </section>
+
+              <!-- LEARNING OBJECTIVES -->
+              <section class="panel">
+                <div class="panel-head">
+                  <div>
+                    <h2>Training Objectives</h2>
+                    <p class="panel-sub">
+                      Skills and areas covered by this course.
+                    </p>
+                  </div>
+                </div>
+
+                <ul class="detail-list" id="detail-objectives">
+                  <li>Course objectives will be provided by the academy.</li>
+                </ul>
+              </section>
+
+              <!-- COURSE REQUIREMENTS -->
+              <section class="panel">
+                <div class="panel-head">
+                  <div>
+                    <h2>Requirements</h2>
+                    <p class="panel-sub">
+                      Important information before joining.
+                    </p>
+                  </div>
+                </div>
+
+                <div id="detail-requirements">
+                  <p>Check the course requirements before enrolling.</p>
+                </div>
+              </section>
+            </div>
+
+            <!-- ENROLMENT SIDEBAR -->
+            <aside class="course-detail-side">
+              <section class="panel enrolment-panel">
+                <p class="eyebrow">JOIN A PROGRAM</p>
+
+                <h2>Course Enrolment</h2>
+
+                <p class="panel-sub">
+                  Review the course details and choose whether to enrol.
+                </p>
+
+                <div class="enrolment-summary">
+                  <div>
+                    <span class="meta-label">Course</span>
+                    <strong id="enrolment-course-name">
+                      Select a course
+                    </strong>
+                  </div>
+
+                  <div>
+                    <span class="meta-label">Sport</span>
+                    <strong id="enrolment-sport">—</strong>
+                  </div>
+
+                  <div>
+                    <span class="meta-label">Training Level</span>
+                    <strong id="enrolment-level">—</strong>
+                  </div>
+                </div>
+
+                <p
+                  class="form-message"
+                  id="enrolment-message"
+                  role="status"
+                  aria-live="polite"
+                  hidden
+                ></p>
+
+                <button
+                  type="button"
+                  class="btn btn-primary btn-block"
+                  id="enrol-course-btn"
+                  disabled
+                >
+                  Enrol in Course
+                </button>
+
+                <button
+                  type="button"
+                  class="btn btn-ghost btn-block"
+                  id="cancel-enrolment-btn"
+                  hidden
+                >
+                  Cancel Enrolment
+                </button>
+
+                <a href="courses.html" class="link-btn enrolment-back">
+                  Browse Other Courses →
+                </a>
+
+                <p class="demo-note demo-note--flush">
+                  Enrolments are demonstration records stored in your browser.
+                  No payment or server submission is involved.
+                </p>
+              </section>
+
+              <!-- COURSE SUPPORT -->
+              <section class="panel">
+                <h2>Need Help?</h2>
+                <p class="panel-sub">
+                  Contact your academy coach or administrator for course
+                  availability and training information.
+                </p>
+                <a href="schedule.html" class="link-btn">
+                  View My Schedule →
+                </a>
+              </section>
+            </aside>
+          </section>
+
+          <footer class="page-footer">
+            <p>Sports Academy Management System</p>
+            <p>Athlete Portal · Frontend Prototype</p>
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

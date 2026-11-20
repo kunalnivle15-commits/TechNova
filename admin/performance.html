@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Manage athlete performance assessments in the Sports Academy Management System."
+    />
+    <title>Performance Management | Admin Portal</title>
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body>
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo">SA</div>
+        <div>
+          <h2>Sports Academy</h2>
+          <p>Management System</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Admin navigation">
+        <p class="nav-heading">MAIN MENU</p>
+        <a href="dashboard.html" class="nav-link"
+          ><span class="nav-icon">▦</span> Dashboard</a
+        >
+        <a href="athletes.html" class="nav-link"
+          ><span class="nav-icon">♙</span> Athletes</a
+        >
+        <a href="coaches.html" class="nav-link"
+          ><span class="nav-icon">♟</span> Coaches</a
+        >
+        <a href="sports.html" class="nav-link"
+          ><span class="nav-icon">◎</span> Sports</a
+        >
+        <a href="courses.html" class="nav-link"
+          ><span class="nav-icon">▤</span> Courses</a
+        >
+        <a href="schedule.html" class="nav-link"
+          ><span class="nav-icon">▦</span> Schedule</a
+        >
+        <a href="attendance.html" class="nav-link"
+          ><span class="nav-icon">✓</span> Attendance</a
+        >
+        <a href="events.html" class="nav-link"
+          ><span class="nav-icon">⚑</span> Events</a
+        >
+        <a href="performance.html" class="nav-link active"
+          ><span class="nav-icon">↗</span> Performance</a
+        >
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="admin-mini-profile">
+          <div class="avatar">AD</div>
+          <div>
+            <strong>Administrator</strong>
+            <small>Admin Portal</small>
+          </div>
+        </div>
+        <a href="../mainpage.html" class="nav-link home-link">
+          <span class="nav-icon">⌂</span> Back to Home
+        </a>
+      </div>
+    </aside>
+
+    <div class="main-wrapper">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button
+            type="button"
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Toggle sidebar"
+            aria-expanded="false"
+          >
+            ☰
+          </button>
+          <div>
+            <p class="breadcrumb">Admin Portal / Analytics</p>
+            <h1>Performance Management</h1>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <span class="status-indicator"></span>
+          <span class="admin-label">Administrator</span>
+          <div class="avatar top-avatar">AD</div>
+        </div>
+      </header>
+
+      <main class="dashboard-content">
+        <section class="page-intro">
+          <div>
+            <h2>Athlete Performance</h2>
+            <p>
+              Record assessments, evaluate progress, and review sporting
+              achievements.
+            </p>
+          </div>
+
+          <button type="button" class="btn btn-primary" id="addPerformanceBtn">
+            <span>＋</span> Add Assessment
+          </button>
+        </section>
+
+        <!-- Performance Statistics -->
+        <section class="stats-grid">
+          <article class="stat-card">
+            <div class="stat-icon stat-blue">↗</div>
+            <div class="stat-info">
+              <p>Total Assessments</p>
+              <h3 id="performanceTotal">0</h3>
+              <span class="stat-caption">Recorded assessments</span>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-icon stat-teal">♙</div>
+            <div class="stat-info">
+              <p>Athletes Assessed</p>
+              <h3 id="performanceAthletes">0</h3>
+              <span class="stat-caption">Unique athletes</span>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-icon stat-orange">★</div>
+            <div class="stat-info">
+              <p>Average Score</p>
+              <h3 id="performanceAverage">0%</h3>
+              <span class="stat-caption">Across assessments</span>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-icon stat-purple">✓</div>
+            <div class="stat-info">
+              <p>Excellent Results</p>
+              <h3 id="performanceExcellent">0</h3>
+              <span class="stat-caption">Scores of 85% or higher</span>
+            </div>
+          </article>
+        </section>
+
+        <!-- Performance Filters -->
+        <section class="section-block">
+          <div class="section-title-row">
+            <div>
+              <h2>Performance Records</h2>
+              <p>
+                Review athlete scores, fitness tests, and assessment history.
+              </p>
+            </div>
+          </div>
+
+          <div class="filter-panel">
+            <div class="form-group search-group">
+              <label for="performanceSearch">Search assessments</label>
+              <input
+                type="search"
+                id="performanceSearch"
+                placeholder="Search athlete, coach, or assessment..."
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="performanceSportFilter">Sport</label>
+              <select id="performanceSportFilter">
+                <option value="">All sports</option>
+                <option>Athletics</option>
+                <option>Badminton</option>
+                <option>Basketball</option>
+                <option>Boxing Fitness</option>
+                <option>Cricket</option>
+                <option>Fitness</option>
+                <option>Football</option>
+                <option>Gymnastics</option>
+                <option>Rugby</option>
+                <option>Swimming</option>
+                <option>Table Tennis</option>
+                <option>Tennis</option>
+                <option>Volleyball</option>
+                <option>Yoga</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="performanceRatingFilter">Rating</label>
+              <select id="performanceRatingFilter">
+                <option value="">All ratings</option>
+                <option value="Excellent">Excellent</option>
+                <option value="Good">Good</option>
+                <option value="Average">Average</option>
+                <option value="Needs Improvement">Needs Improvement</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="performanceDateFilter">Assessment date</label>
+              <input type="date" id="performanceDateFilter" />
+            </div>
+
+            <button
+              type="button"
+              class="btn btn-secondary"
+              id="resetPerformanceFilters"
+            >
+              Reset Filters
+            </button>
+          </div>
+
+          <!-- Performance Table -->
+          <div class="table-panel">
+            <div class="table-heading">
+              <div>
+                <h3>All Assessments</h3>
+                <p id="performanceResultCount">Showing 0 assessments</p>
+              </div>
+
+              <button
+                type="button"
+                class="btn btn-secondary"
+                id="exportPerformanceBtn"
+              >
+                Export CSV
+              </button>
+            </div>
+
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Athlete</th>
+                    <th>Athlete ID</th>
+                    <th>Sport</th>
+                    <th>Assessment</th>
+                    <th>Date</th>
+                    <th>Score</th>
+                    <th>Rating</th>
+                    <th>Coach</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+
+                <tbody id="performanceTableBody">
+                  <tr>
+                    <td colspan="9" class="empty-state">
+                      Performance assessments will appear here.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <footer class="dashboard-footer">
+          <p>
+            © <span class="current-year">2026</span> Sports Academy Management
+            System
+          </p>
+          <p>Admin Portal · Demonstration Records</p>
+        </footer>
+      </main>
+    </div>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Add/Edit Performance Assessment Modal -->
+    <div class="modal-backdrop" id="performanceModal" hidden>
+      <section
+        class="modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="performanceModalTitle"
+      >
+        <div class="modal-header">
+          <div>
+            <p class="eyebrow">ATHLETE EVALUATION</p>
+            <h2 id="performanceModalTitle">Add Assessment</h2>
+          </div>
+
+          <button
+            type="button"
+            class="modal-close"
+            id="closePerformanceModal"
+            aria-label="Close dialog"
+          >
+            ×
+          </button>
+        </div>
+
+        <form id="performanceForm">
+          <input type="hidden" id="performanceRecordId" />
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="performanceAthlete">Athlete name *</label>
+              <input
+                type="text"
+                id="performanceAthlete"
+                maxlength="100"
+                placeholder="Enter athlete name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="performanceAthleteId">Athlete ID</label>
+              <input
+                type="text"
+                id="performanceAthleteId"
+                maxlength="50"
+                placeholder="e.g. ATH-001"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="performanceSport">Sport *</label>
+              <select id="performanceSport" required>
+                <option value="">Select sport</option>
+                <option>Athletics</option>
+                <option>Badminton</option>
+                <option>Basketball</option>
+                <option>Boxing Fitness</option>
+                <option>Cricket</option>
+                <option>Fitness</option>
+                <option>Football</option>
+                <option>Gymnastics</option>
+                <option>Rugby</option>
+                <option>Swimming</option>
+                <option>Table Tennis</option>
+                <option>Tennis</option>
+                <option>Volleyball</option>
+                <option>Yoga</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="performanceAssessment">Assessment type *</label>
+              <select id="performanceAssessment" required>
+                <option value="">Select assessment</option>
+                <option value="Fitness Test">Fitness Test</option>
+                <option value="Skill Assessment">Skill Assessment</option>
+                <option value="Speed Test">Speed Test</option>
+                <option value="Endurance Test">Endurance Test</option>
+                <option value="Strength Test">Strength Test</option>
+                <option value="Match Performance">Match Performance</option>
+                <option value="General Evaluation">General Evaluation</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="performanceDate">Assessment date *</label>
+              <input type="date" id="performanceDate" required />
+            </div>
+
+            <div class="form-group">
+              <label for="performanceScore">Score (%) *</label>
+              <input
+                type="number"
+                id="performanceScore"
+                min="0"
+                max="100"
+                step="0.1"
+                placeholder="0–100"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="performanceCoach">Coach / Evaluator</label>
+              <input
+                type="text"
+                id="performanceCoach"
+                maxlength="100"
+                placeholder="Enter evaluator name"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="performanceRating">Rating</label>
+              <select id="performanceRating">
+                <option value="">Auto-calculate from score</option>
+                <option value="Excellent">Excellent</option>
+                <option value="Good">Good</option>
+                <option value="Average">Average</option>
+                <option value="Needs Improvement">Needs Improvement</option>
+              </select>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="performanceRemarks">Assessment remarks</label>
+              <textarea
+                id="performanceRemarks"
+                rows="3"
+                maxlength="700"
+                placeholder="Record progress, strengths, and areas to improve..."
+              ></textarea>
+            </div>
+          </div>
+
+          <p id="performanceFormError" class="error-message" role="alert"></p>
+
+          <div class="modal-actions">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              id="cancelPerformanceForm"
+            >
+              Cancel
+            </button>
+
+            <button
+              type="submit"
+              class="btn btn-primary"
+              id="savePerformanceBtn"
+            >
+              Save Assessment
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <script src="js/admin.js"></script>
+  </body>
+</html>
