@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Schedule | Sports Academy</title>
+    <link rel="stylesheet" href="athlete.css" />
+    <script src="js/athlete.js" defer></script>
+  </head>
+
+  <body data-page="schedule">
+    <div class="app-shell">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <a href="dashboard.html" class="sidebar-brand">
+          <img
+            src="../assets/logo.jpeg"
+            alt="Sports Academy logo"
+            class="sidebar-logo"
+          />
+          <span class="sidebar-brand-name">Sports Academy</span>
+        </a>
+
+        <nav class="nav-list" aria-label="Main navigation">
+          <a href="dashboard.html" class="nav-item">
+            <span>Dashboard</span>
+          </a>
+          <a href="courses.html" class="nav-item">
+            <span>My Courses</span>
+          </a>
+          <a href="statistics.html" class="nav-item">
+            <span>Statistics</span>
+          </a>
+          <a href="schedule.html" class="nav-item active" aria-current="page">
+            <span>Schedule</span>
+          </a>
+          <a href="events.html" class="nav-item">
+            <span>Events</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <p>Sports Academy Management System</p>
+        </div>
+      </aside>
+
+      <!-- Main area -->
+      <div class="main-area">
+        <!-- Topbar -->
+        <header class="topbar">
+          <div class="greeting">
+            <span class="eyebrow">ATHLETE PORTAL</span>
+            <h1>Training Schedule</h1>
+          </div>
+
+          <div class="topbar-actions">
+            <!-- Notifications -->
+            <div class="notif">
+              <button
+                type="button"
+                class="icon-btn notification-button"
+                id="notification-toggle"
+                aria-label="Open notifications"
+                aria-expanded="false"
+              >
+                <svg
+                  class="notification-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="21"
+                  height="21"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"
+                  ></path>
+                  <path d="M10 21h4"></path>
+                </svg>
+                <span class="badge" id="notification-count">0</span>
+              </button>
+
+              <div class="notif-panel" id="notification-panel" hidden>
+                <div class="notif-head">
+                  <strong>Notifications</strong>
+                  <button
+                    type="button"
+                    class="link-btn"
+                    id="mark-notifications-read"
+                  >
+                    Mark all read
+                  </button>
+                </div>
+                <div id="notification-list">
+                  <p class="empty-state">You're all caught up.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Profile -->
+            <div class="profile-wrap">
+              <button
+                type="button"
+                class="profile-btn"
+                id="profile-toggle"
+                aria-expanded="false"
+                aria-label="Open athlete profile"
+              >
+                <span class="avatar" id="athlete-avatar">A</span>
+                <span class="profile-name" id="athlete-name">Athlete</span>
+                <span aria-hidden="true">▾</span>
+              </button>
+
+              <div class="profile-panel" id="profile-panel" hidden>
+                <div class="profile-head">
+                  <span class="avatar" id="profile-avatar">A</span>
+                  <div class="profile-details">
+                    <strong id="profile-display-name">Athlete</strong>
+                    <span id="profile-sport">Sports Academy</span>
+                    <small id="profile-member-id">Member ID: SA-001</small>
+                  </div>
+                </div>
+                <a href="dashboard.html" class="btn btn-ghost btn-small">
+                  Back to Dashboard
+                </a>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Page content -->
+        <main class="content">
+          <section class="page-intro">
+            <div>
+              <span class="eyebrow">PLAN YOUR TRAINING</span>
+              <h2>My Schedule</h2>
+              <p>
+                View your upcoming training sessions, timings, locations and
+                coaches.
+              </p>
+            </div>
+            <a href="courses.html" class="btn btn-primary"> Explore Courses </a>
+          </section>
+
+          <!-- Schedule summary -->
+          <section class="stats-grid" aria-label="Schedule summary">
+            <article class="stat-card">
+              <div class="stat-icon">▦</div>
+              <p class="stat-label">Total Sessions</p>
+              <h3 class="stat-value" id="schedule-total-count">0</h3>
+              <p class="stat-note">Sessions in your schedule</p>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-icon">◷</div>
+              <p class="stat-label">Upcoming</p>
+              <h3 class="stat-value" id="schedule-upcoming-count">0</h3>
+              <p class="stat-note">Sessions yet to begin</p>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-icon">✓</div>
+              <p class="stat-label">Completed</p>
+              <h3 class="stat-value" id="schedule-completed-count">0</h3>
+              <p class="stat-note">Sessions marked completed</p>
+            </article>
+          </section>
+
+          <!-- Filters -->
+          <section class="panel">
+            <div class="panel-head">
+              <div>
+                <h2>Find a Session</h2>
+                <p class="panel-sub">
+                  Filter your schedule by course, date or session status.
+                </p>
+              </div>
+            </div>
+
+            <div class="schedule-filters">
+              <div class="filter-field">
+                <label for="schedule-search">Search</label>
+                <input
+                  type="search"
+                  id="schedule-search"
+                  placeholder="Search course, coach or location..."
+                />
+              </div>
+
+              <div class="filter-field">
+                <label for="schedule-course-filter">Course</label>
+                <select id="schedule-course-filter">
+                  <option value="all">All Courses</option>
+                </select>
+              </div>
+
+              <div class="filter-field">
+                <label for="schedule-status-filter">Status</label>
+                <select id="schedule-status-filter">
+                  <option value="all">All Sessions</option>
+                  <option value="upcoming">Upcoming</option>
+                  <option value="completed">Completed</option>
+                  <option value="cancelled">Cancelled</option>
+                </select>
+              </div>
+
+              <div class="filter-field">
+                <label for="schedule-date-filter">Date</label>
+                <input type="date" id="schedule-date-filter" />
+              </div>
+
+              <button
+                type="button"
+                class="btn btn-ghost filter-reset"
+                id="reset-schedule-filters"
+              >
+                Reset Filters
+              </button>
+            </div>
+          </section>
+
+          <!-- Upcoming sessions -->
+          <section class="panel">
+            <div class="panel-head">
+              <div>
+                <h2>Upcoming Sessions</h2>
+                <p class="panel-sub">
+                  Your next scheduled training activities.
+                </p>
+              </div>
+              <span class="tag" id="upcoming-session-count">0 sessions</span>
+            </div>
+
+            <div class="schedule-list" id="upcoming-sessions">
+              <div class="empty-state">
+                Your upcoming sessions will appear here.
+              </div>
+            </div>
+          </section>
+
+          <!-- Full schedule -->
+          <section class="panel">
+            <div class="panel-head">
+              <div>
+                <h2>All Training Sessions</h2>
+                <p class="panel-sub">Your complete training schedule.</p>
+              </div>
+              <span class="tag" id="schedule-results-count">0 sessions</span>
+            </div>
+
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Course</th>
+                    <th scope="col">Coach</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+
+                <tbody id="schedule-records">
+                  <tr>
+                    <td colspan="6" class="empty-state">
+                      Your training schedule will appear here.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="empty-state" id="no-schedule-results" hidden>
+              <h3>No sessions found</h3>
+              <p>Try changing your filters or resetting the search.</p>
+              <button
+                type="button"
+                class="btn btn-ghost"
+                id="clear-schedule-filters"
+              >
+                Clear Filters
+              </button>
+            </div>
+          </section>
+
+          <div class="demo-note">
+            <strong>Schedule information</strong>
+            <p>
+              This prototype uses temporary browser data. Session information
+              will be displayed from the available sample data and your enrolled
+              courses; no backend is connected.
+            </p>
+          </div>
+
+          <footer class="page-footer">Sports Academy Management System</footer>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

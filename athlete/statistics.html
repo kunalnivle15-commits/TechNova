@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Statistics | Sports Academy</title>
+    <link rel="stylesheet" href="athlete.css" />
+    <script src="js/athlete.js" defer></script>
+  </head>
+
+  <body data-page="statistics">
+    <div class="app-shell">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <a href="dashboard.html" class="sidebar-brand">
+          <img
+            src="../assets/logo.jpeg"
+            alt="Sports Academy logo"
+            class="sidebar-logo"
+          />
+          <span class="sidebar-brand-name">Sports Academy</span>
+        </a>
+
+        <nav class="nav-list" aria-label="Main navigation">
+          <a href="dashboard.html" class="nav-item">
+            <span>Dashboard</span>
+          </a>
+          <a href="courses.html" class="nav-item">
+            <span>My Courses</span>
+          </a>
+          <a href="statistics.html" class="nav-item active" aria-current="page">
+            <span>Statistics</span>
+          </a>
+          <a href="schedule.html" class="nav-item">
+            <span>Schedule</span>
+          </a>
+          <a href="events.html" class="nav-item">
+            <span>Events</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <p>Sports Academy Management System</p>
+        </div>
+      </aside>
+
+      <!-- Main area -->
+      <div class="main-area">
+        <!-- Topbar -->
+        <header class="topbar">
+          <div class="greeting">
+            <span class="eyebrow">ATHLETE PORTAL</span>
+            <h1>My Statistics</h1>
+          </div>
+
+          <div class="topbar-actions">
+            <!-- Notifications -->
+            <div class="notif">
+              <button
+                type="button"
+                class="icon-btn notification-button"
+                id="notification-toggle"
+                aria-label="Open notifications"
+                aria-expanded="false"
+              >
+                <svg
+                  class="notification-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="21"
+                  height="21"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"
+                  ></path>
+                  <path d="M10 21h4"></path>
+                </svg>
+                <span class="badge" id="notification-count">0</span>
+              </button>
+
+              <div class="notif-panel" id="notification-panel" hidden>
+                <div class="notif-head">
+                  <strong>Notifications</strong>
+                  <button
+                    type="button"
+                    class="link-btn"
+                    id="mark-notifications-read"
+                  >
+                    Mark all read
+                  </button>
+                </div>
+                <div id="notification-list">
+                  <p class="empty-state">You're all caught up.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Profile -->
+            <div class="profile-wrap">
+              <button
+                type="button"
+                class="profile-btn"
+                id="profile-toggle"
+                aria-expanded="false"
+                aria-label="Open athlete profile"
+              >
+                <span class="avatar" id="athlete-avatar">A</span>
+                <span class="profile-name" id="athlete-name">Athlete</span>
+                <span aria-hidden="true">▾</span>
+              </button>
+
+              <div class="profile-panel" id="profile-panel" hidden>
+                <div class="profile-head">
+                  <span class="avatar" id="profile-avatar">A</span>
+                  <div class="profile-details">
+                    <strong id="profile-display-name">Athlete</strong>
+                    <span id="profile-sport">Sports Academy</span>
+                    <small id="profile-member-id">Member ID: SA-001</small>
+                  </div>
+                </div>
+                <a href="dashboard.html" class="btn btn-ghost btn-small">
+                  Back to Dashboard
+                </a>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Page content -->
+        <main class="content">
+          <section class="page-intro">
+            <div>
+              <span class="eyebrow">YOUR PROGRESS</span>
+              <h2>Track your performance</h2>
+              <p>
+                Review your attendance, training progress and performance
+                records across your enrolled courses.
+              </p>
+            </div>
+          </section>
+
+          <!-- Statistics summary -->
+          <section class="stats-grid" aria-label="Statistics summary">
+            <article class="stat-card">
+              <div class="stat-icon">%</div>
+              <p class="stat-label">Overall Attendance</p>
+              <h3 class="stat-value" id="overall-attendance">0%</h3>
+              <p class="stat-note">Across recorded sessions</p>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-icon">✓</div>
+              <p class="stat-label">Sessions Attended</p>
+              <h3 class="stat-value" id="attended-sessions">0</h3>
+              <p class="stat-note">Total attended sessions</p>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-icon">▦</div>
+              <p class="stat-label">Total Sessions</p>
+              <h3 class="stat-value" id="total-sessions">0</h3>
+              <p class="stat-note">Recorded training sessions</p>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-icon">★</div>
+              <p class="stat-label">Performance Records</p>
+              <h3 class="stat-value" id="performance-count">0</h3>
+              <p class="stat-note">Recorded results and assessments</p>
+            </article>
+          </section>
+
+          <!-- Attendance overview -->
+          <section class="panel statistics-panel">
+            <div class="panel-head">
+              <div>
+                <h2>Attendance Overview</h2>
+                <p class="panel-sub">
+                  Your attendance across training sessions.
+                </p>
+              </div>
+
+              <select
+                id="statistics-course-filter"
+                aria-label="Filter statistics by course"
+              >
+                <option value="all">All Courses</option>
+              </select>
+            </div>
+
+            <div class="attendance-overview">
+              <div class="attendance-main">
+                <span class="eyebrow">ATTENDANCE RATE</span>
+                <h3 id="statistics-attendance-rate">0%</h3>
+                <p id="statistics-attendance-message">
+                  Your attendance summary will appear here.
+                </p>
+
+                <div class="progress-track">
+                  <div
+                    class="progress-fill"
+                    id="statistics-attendance-progress"
+                    role="progressbar"
+                    aria-label="Attendance rate"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-valuenow="0"
+                    style="width: 0%"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="attendance-breakdown">
+                <div class="performance-item">
+                  <span class="performance-label">Attended</span>
+                  <strong id="attendance-present-count">0</strong>
+                </div>
+
+                <div class="performance-item">
+                  <span class="performance-label">Absent</span>
+                  <strong id="attendance-absent-count">0</strong>
+                </div>
+
+                <div class="performance-item">
+                  <span class="performance-label">Not recorded</span>
+                  <strong id="attendance-unrecorded-count">0</strong>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Attendance history -->
+          <section class="panel">
+            <div class="panel-head">
+              <div>
+                <h2>Attendance History</h2>
+                <p class="panel-sub">
+                  Review your recorded training attendance.
+                </p>
+              </div>
+              <span class="tag" id="attendance-record-count">0 records</span>
+            </div>
+
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Course</th>
+                    <th scope="col">Session</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody id="attendance-records">
+                  <tr>
+                    <td colspan="4" class="empty-state">
+                      Attendance records will appear here.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Performance records -->
+          <section class="panel">
+            <div class="panel-head">
+              <div>
+                <h2>Performance Records</h2>
+                <p class="panel-sub">
+                  Review recorded assessments and achievements.
+                </p>
+              </div>
+              <span class="tag" id="performance-record-count">0 records</span>
+            </div>
+
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Course</th>
+                    <th scope="col">Assessment</th>
+                    <th scope="col">Result</th>
+                    <th scope="col">Remarks</th>
+                  </tr>
+                </thead>
+                <tbody id="performance-records">
+                  <tr>
+                    <td colspan="5" class="empty-state">
+                      Performance records will appear here.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Informational note -->
+          <div class="demo-note">
+            <strong>About your statistics</strong>
+            <p>
+              This is a frontend-only prototype. Statistics will be calculated
+              from the attendance and performance data available in your
+              browser. No server or database is connected.
+            </p>
+          </div>
+
+          <footer class="page-footer">Sports Academy Management System</footer>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

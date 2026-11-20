@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#183B56" />
+
+    <title>Athlete Dashboard | Sports Academy</title>
+
+    <link rel="stylesheet" href="athlete.css" />
+    <script src="js/athlete.js" defer></script>
+  </head>
+
+  <body data-page="dashboard">
+    <a href="#main-content" class="skip-link"> Skip to main content </a>
+
+    <div class="app-shell">
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <a href="dashboard.html" class="sidebar-brand">
+          <img
+            src="../assets/logo.jpeg"
+            alt="Sports Academy logo"
+            class="sidebar-logo"
+          />
+          <span class="sidebar-brand-name">Sports Academy</span>
+        </a>
+
+        <nav class="nav-list" aria-label="Main navigation">
+          <a href="dashboard.html" class="nav-item active" aria-current="page">
+            <span>Dashboard</span>
+          </a>
+          <a href="courses.html" class="nav-item">
+            <span>My Courses</span>
+          </a>
+          <a href="statistics.html" class="nav-item">
+            <span>Statistics</span>
+          </a>
+          <a href="schedule.html" class="nav-item">
+            <span>Schedule</span>
+          </a>
+          <a href="events.html" class="nav-item">
+            <span>Events</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <p>Athlete Portal</p>
+          <span>Sports Academy Management</span>
+        </div>
+      </aside>
+
+      <!-- MAIN AREA -->
+      <div class="main-area">
+        <!-- TOPBAR -->
+        <header class="topbar">
+          <div class="topbar-heading">
+            <p class="topbar-label">ATHLETE PORTAL</p>
+            <h1 class="greeting">Dashboard</h1>
+          </div>
+
+          <div class="topbar-actions">
+            <div class="notif">
+              <button
+                type="button"
+                class="icon-btn notification-button"
+                id="notification-toggle"
+                aria-label="Open notifications"
+                aria-expanded="false"
+              >
+                <svg
+                  class="notification-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="21"
+                  height="21"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"
+                  ></path>
+                  <path d="M10 21h4"></path>
+                </svg>
+                <span class="badge" id="notification-count">0</span>
+              </button>
+
+              <section
+                class="notif-panel"
+                id="notification-panel"
+                aria-label="Notifications"
+                hidden
+              >
+                <div class="notif-head">
+                  <h2>Notifications</h2>
+                  <button
+                    type="button"
+                    class="link-btn"
+                    id="mark-notifications-read"
+                  >
+                    Mark all read
+                  </button>
+                </div>
+
+                <p class="demo-note">Demonstration notifications</p>
+
+                <div id="notification-list">
+                  <p class="empty-state">
+                    Your notifications will appear here.
+                  </p>
+                </div>
+              </section>
+            </div>
+
+            <div class="profile-wrap">
+              <button
+                type="button"
+                class="profile-btn"
+                id="profile-toggle"
+                aria-expanded="false"
+                aria-controls="profile-panel"
+              >
+                <span class="avatar" id="athlete-avatar">A</span>
+
+                <span class="profile-name" id="athlete-name"> Athlete </span>
+
+                <span aria-hidden="true">⌄</span>
+              </button>
+
+              <section
+                class="profile-panel"
+                id="profile-panel"
+                aria-label="Athlete profile"
+                hidden
+              >
+                <div class="profile-head">
+                  <span class="avatar avatar--lg" id="profile-avatar">A</span>
+
+                  <div>
+                    <h2 id="profile-display-name">Athlete</h2>
+                    <p class="demo-note">Athlete account</p>
+                  </div>
+                </div>
+
+                <dl class="profile-details">
+                  <div>
+                    <dt>Sport</dt>
+                    <dd id="profile-sport">Not assigned</dd>
+                  </div>
+                  <div>
+                    <dt>Member ID</dt>
+                    <dd id="profile-member-id">ATH-001</dd>
+                  </div>
+                </dl>
+
+                <p class="demo-note">
+                  Sample profile information stored in this browser.
+                </p>
+              </section>
+            </div>
+          </div>
+        </header>
+
+        <!-- DASHBOARD CONTENT -->
+        <main class="content" id="main-content">
+          <!-- WELCOME -->
+          <section class="welcome">
+            <p class="eyebrow">YOUR TRAINING SPACE</p>
+            <h2 id="welcome-title">Welcome back, Athlete!</h2>
+            <p>
+              Keep track of your courses, training sessions, performance and
+              upcoming academy events.
+            </p>
+          </section>
+
+          <!-- QUICK STATS -->
+          <section class="stats-grid" aria-label="Athlete overview">
+            <article class="stat-card">
+              <div class="stat-icon stat-icon--blue" aria-hidden="true">▤</div>
+              <div>
+                <p class="stat-label">Enrolled Courses</p>
+                <p class="stat-value" id="stat-courses">0</p>
+                <p class="stat-note">Your active courses</p>
+              </div>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-icon stat-icon--teal" aria-hidden="true">✓</div>
+              <div>
+                <p class="stat-label">Attendance</p>
+                <p class="stat-value" id="stat-attendance">—</p>
+                <p class="stat-note">Recorded sessions</p>
+              </div>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-icon stat-icon--amber" aria-hidden="true">▦</div>
+              <div>
+                <p class="stat-label">Upcoming Sessions</p>
+                <p class="stat-value" id="stat-sessions">0</p>
+                <p class="stat-note">Scheduled training</p>
+              </div>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-icon stat-icon--navy" aria-hidden="true">☆</div>
+              <div>
+                <p class="stat-label">Upcoming Events</p>
+                <p class="stat-value" id="stat-events">0</p>
+                <p class="stat-note">Academy activities</p>
+              </div>
+            </article>
+          </section>
+
+          <!-- MAIN DASHBOARD GRID -->
+          <div class="dash-grid">
+            <div class="dash-main">
+              <!-- MY COURSES -->
+              <section class="panel">
+                <div class="panel-head">
+                  <div>
+                    <h2>My Courses</h2>
+                    <p class="panel-sub">Courses you have enrolled in.</p>
+                  </div>
+
+                  <a href="courses.html" class="btn btn-ghost btn-small">
+                    Browse Courses
+                  </a>
+                </div>
+
+                <div class="enrolment-list" id="dashboard-courses">
+                  <div class="empty-state">
+                    <p>You have not enrolled in any courses yet.</p>
+                    <a href="courses.html" class="btn btn-primary">
+                      Explore Courses
+                    </a>
+                  </div>
+                </div>
+              </section>
+
+              <!-- UPCOMING SCHEDULE -->
+              <section class="panel">
+                <div class="panel-head">
+                  <div>
+                    <h2>Upcoming Schedule</h2>
+                    <p class="panel-sub">Your next training sessions.</p>
+                  </div>
+
+                  <a href="schedule.html" class="link-btn"> View Schedule → </a>
+                </div>
+
+                <div id="dashboard-schedule">
+                  <div class="empty-state">
+                    <p>No training sessions are scheduled yet.</p>
+                    <a href="schedule.html" class="btn btn-ghost">
+                      Open Schedule
+                    </a>
+                  </div>
+                </div>
+              </section>
+
+              <!-- PERFORMANCE SUMMARY -->
+              <section class="panel">
+                <div class="panel-head">
+                  <div>
+                    <h2>Performance Overview</h2>
+                    <p class="panel-sub">
+                      A quick look at your recorded progress.
+                    </p>
+                  </div>
+
+                  <a href="statistics.html" class="link-btn">
+                    View Statistics →
+                  </a>
+                </div>
+
+                <div class="performance-grid">
+                  <div class="performance-item">
+                    <span class="performance-label"> Attendance Rate </span>
+                    <strong id="performance-attendance">—</strong>
+                    <div class="progress-track">
+                      <div
+                        class="progress-fill"
+                        id="attendance-progress"
+                        style="width: 0%"
+                      ></div>
+                    </div>
+                  </div>
+
+                  <div class="performance-item">
+                    <span class="performance-label"> Recorded Results </span>
+                    <strong id="performance-results">0</strong>
+                    <p class="stat-note">Performance records</p>
+                  </div>
+                </div>
+              </section>
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <aside class="dash-side">
+              <!-- ANNOUNCEMENTS -->
+              <section class="panel announce-panel">
+                <div class="panel-head">
+                  <div>
+                    <h2>Announcements</h2>
+                    <p class="panel-sub">Academy updates and notices.</p>
+                  </div>
+                </div>
+
+                <div id="dashboard-announcements">
+                  <article class="announce-item">
+                    <span class="tag tag--course">Academy</span>
+                    <h3>Welcome to the Athlete Portal</h3>
+                    <p>
+                      Explore your courses, schedule and performance information
+                      from one place.
+                    </p>
+                    <p class="announce-meta">Sample announcement</p>
+                  </article>
+                </div>
+
+                <p class="demo-note demo-note--flush">
+                  Sample announcements are for demonstration only.
+                </p>
+              </section>
+
+              <!-- UPCOMING EVENTS -->
+              <section class="panel">
+                <div class="panel-head">
+                  <div>
+                    <h2>Upcoming Events</h2>
+                    <p class="panel-sub">
+                      Competitions and academy activities.
+                    </p>
+                  </div>
+                </div>
+
+                <div id="dashboard-events">
+                  <div class="empty-state">
+                    <p>No upcoming events available.</p>
+                    <a href="events.html" class="link-btn">
+                      Explore Events →
+                    </a>
+                  </div>
+                </div>
+              </section>
+            </aside>
+          </div>
+
+          <footer class="page-footer">
+            <p>Sports Academy Management System</p>
+            <p>Athlete Portal · Frontend Prototype</p>
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

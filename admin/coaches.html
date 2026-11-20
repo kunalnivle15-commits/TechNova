@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Manage coaching staff in the Sports Academy Management System."
+    />
+    <title>Coach Management | Admin Portal</title>
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body>
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo">SA</div>
+        <div>
+          <h2>Sports Academy</h2>
+          <p>Management System</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Admin navigation">
+        <p class="nav-heading">MAIN MENU</p>
+        <a href="dashboard.html" class="nav-link"
+          ><span class="nav-icon">▦</span> Dashboard</a
+        >
+        <a href="athletes.html" class="nav-link"
+          ><span class="nav-icon">♙</span> Athletes</a
+        >
+        <a href="coaches.html" class="nav-link active"
+          ><span class="nav-icon">♟</span> Coaches</a
+        >
+        <a href="sports.html" class="nav-link"
+          ><span class="nav-icon">◎</span> Sports</a
+        >
+        <a href="courses.html" class="nav-link"
+          ><span class="nav-icon">▤</span> Courses</a
+        >
+        <a href="schedule.html" class="nav-link"
+          ><span class="nav-icon">▦</span> Schedule</a
+        >
+        <a href="attendance.html" class="nav-link"
+          ><span class="nav-icon">✓</span> Attendance</a
+        >
+        <a href="events.html" class="nav-link"
+          ><span class="nav-icon">⚑</span> Events</a
+        >
+        <a href="performance.html" class="nav-link"
+          ><span class="nav-icon">↗</span> Performance</a
+        >
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="admin-mini-profile">
+          <div class="avatar">AD</div>
+          <div>
+            <strong>Administrator</strong>
+            <small>Admin Portal</small>
+          </div>
+        </div>
+        <a href="../mainpage.html" class="nav-link home-link"
+          ><span class="nav-icon">⌂</span> Back to Home</a
+        >
+      </div>
+    </aside>
+
+    <div class="main-wrapper">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button
+            type="button"
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Toggle sidebar"
+            aria-expanded="false"
+          >
+            ☰
+          </button>
+          <div>
+            <p class="breadcrumb">Admin Portal / Management</p>
+            <h1>Coach Management</h1>
+          </div>
+        </div>
+        <div class="topbar-right">
+          <span class="status-indicator"></span>
+          <span class="admin-label">Administrator</span>
+          <div class="avatar top-avatar">AD</div>
+        </div>
+      </header>
+
+      <main class="dashboard-content">
+        <section class="page-intro">
+          <div>
+            <h2>Manage Coaches</h2>
+            <p>
+              Maintain coaching staff profiles, specialisations and assignments.
+            </p>
+          </div>
+          <button type="button" class="btn btn-primary" id="addCoachBtn">
+            <span>＋</span> Add Coach
+          </button>
+        </section>
+
+        <section class="stats-grid">
+          <article class="stat-card">
+            <div class="stat-icon stat-blue">♟</div>
+            <div class="stat-info">
+              <p>Total Coaches</p>
+              <h3 id="coachTotal">0</h3>
+              <span class="stat-caption">All coach records</span>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-icon stat-teal">✓</div>
+            <div class="stat-info">
+              <p>Active Coaches</p>
+              <h3 id="coachActive">0</h3>
+              <span class="stat-caption">Currently active</span>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-icon stat-orange">◎</div>
+            <div class="stat-info">
+              <p>Sports Covered</p>
+              <h3 id="coachSports">0</h3>
+              <span class="stat-caption">Unique specialisations</span>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-icon stat-purple">▤</div>
+            <div class="stat-info">
+              <p>Years of Experience</p>
+              <h3 id="coachExperience">0</h3>
+              <span class="stat-caption">Combined experience</span>
+            </div>
+          </article>
+        </section>
+
+        <section class="section-block">
+          <div class="section-title-row">
+            <div>
+              <h2>Coaching Staff Directory</h2>
+              <p>Search and manage your academy's coaching team.</p>
+            </div>
+          </div>
+
+          <div class="filter-panel">
+            <div class="form-group search-group">
+              <label for="coachSearch">Search coaches</label>
+              <input
+                type="search"
+                id="coachSearch"
+                placeholder="Search by name, ID, email or sport..."
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="coachSportFilter">Specialisation</label>
+              <select id="coachSportFilter">
+                <option value="">All sports</option>
+                <option>Athletics</option>
+                <option>Badminton</option>
+                <option>Basketball</option>
+                <option>Boxing Fitness</option>
+                <option>Cricket</option>
+                <option>Fitness</option>
+                <option>Football</option>
+                <option>Gymnastics</option>
+                <option>Rugby</option>
+                <option>Swimming</option>
+                <option>Table Tennis</option>
+                <option>Tennis</option>
+                <option>Volleyball</option>
+                <option>Yoga</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="coachStatusFilter">Status</label>
+              <select id="coachStatusFilter">
+                <option value="">All statuses</option>
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+              </select>
+            </div>
+
+            <button
+              type="button"
+              class="btn btn-secondary"
+              id="resetCoachFilters"
+            >
+              Reset Filters
+            </button>
+          </div>
+
+          <div class="table-panel">
+            <div class="table-heading">
+              <div>
+                <h3>All Coaches</h3>
+                <p id="coachResultCount">Showing 0 coaches</p>
+              </div>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                id="exportCoachesBtn"
+              >
+                Export CSV
+              </button>
+            </div>
+
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Coach</th>
+                    <th>Coach ID</th>
+                    <th>Specialisation</th>
+                    <th>Experience</th>
+                    <th>Assigned Batch</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="coachTableBody">
+                  <tr>
+                    <td colspan="7" class="empty-state">
+                      Coach records will appear here.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <footer class="dashboard-footer">
+          <p>
+            © <span class="current-year">2026</span> Sports Academy Management
+            System
+          </p>
+          <p>Admin Portal · Demonstration Records</p>
+        </footer>
+      </main>
+    </div>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Add/Edit Coach Modal -->
+    <div class="modal-backdrop" id="coachModal" hidden>
+      <section
+        class="modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="coachModalTitle"
+      >
+        <div class="modal-header">
+          <div>
+            <p class="eyebrow">COACHING STAFF</p>
+            <h2 id="coachModalTitle">Add Coach</h2>
+          </div>
+          <button
+            type="button"
+            class="modal-close"
+            id="closeCoachModal"
+            aria-label="Close dialog"
+          >
+            ×
+          </button>
+        </div>
+
+        <form id="coachForm">
+          <input type="hidden" id="coachRecordId" />
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="coachName">Full name *</label>
+              <input type="text" id="coachName" maxlength="80" required />
+            </div>
+
+            <div class="form-group">
+              <label for="coachEmail">Email</label>
+              <input type="email" id="coachEmail" maxlength="120" />
+            </div>
+
+            <div class="form-group">
+              <label for="coachPhone">Phone</label>
+              <input type="tel" id="coachPhone" maxlength="25" />
+            </div>
+
+            <div class="form-group">
+              <label for="coachSport">Specialisation *</label>
+              <select id="coachSport" required>
+                <option value="">Select sport</option>
+                <option>Athletics</option>
+                <option>Badminton</option>
+                <option>Basketball</option>
+                <option>Boxing Fitness</option>
+                <option>Cricket</option>
+                <option>Fitness</option>
+                <option>Football</option>
+                <option>Gymnastics</option>
+                <option>Rugby</option>
+                <option>Swimming</option>
+                <option>Table Tennis</option>
+                <option>Tennis</option>
+                <option>Volleyball</option>
+                <option>Yoga</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="coachExperienceInput">Experience (years)</label>
+              <input type="number" id="coachExperienceInput" min="0" max="60" />
+            </div>
+
+            <div class="form-group">
+              <label for="coachBatch">Assigned batch</label>
+              <input
+                type="text"
+                id="coachBatch"
+                maxlength="100"
+                placeholder="e.g. Basketball Beginners"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="coachStatus">Status</label>
+              <select id="coachStatus">
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="coachJoined">Joining date</label>
+              <input type="date" id="coachJoined" />
+            </div>
+          </div>
+
+          <p id="coachFormError" class="error-message" role="alert"></p>
+
+          <div class="modal-actions">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              id="cancelCoachForm"
+            >
+              Cancel
+            </button>
+            <button type="submit" class="btn btn-primary" id="saveCoachBtn">
+              Save Coach
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <script src="js/admin.js"></script>
+  </body>
+</html>

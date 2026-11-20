@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Admin dashboard for the Sports Academy Management System."
+    />
+    <title>Admin Dashboard | Sports Academy Management System</title>
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body>
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo">SA</div>
+        <div>
+          <h2>Sports Academy</h2>
+          <p>Management System</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Admin navigation">
+        <p class="nav-heading">MAIN MENU</p>
+
+        <a href="dashboard.html" class="nav-link active">
+          <span class="nav-icon">▦</span> Dashboard
+        </a>
+        <a href="athletes.html" class="nav-link">
+          <span class="nav-icon">♙</span> Athletes
+        </a>
+        <a href="coaches.html" class="nav-link">
+          <span class="nav-icon">♟</span> Coaches
+        </a>
+        <a href="sports.html" class="nav-link">
+          <span class="nav-icon">◎</span> Sports
+        </a>
+        <a href="courses.html" class="nav-link">
+          <span class="nav-icon">▤</span> Courses
+        </a>
+        <a href="schedule.html" class="nav-link">
+          <span class="nav-icon">▦</span> Schedule
+        </a>
+        <a href="attendance.html" class="nav-link">
+          <span class="nav-icon">✓</span> Attendance
+        </a>
+        <a href="events.html" class="nav-link">
+          <span class="nav-icon">⚑</span> Events
+        </a>
+        <a href="performance.html" class="nav-link">
+          <span class="nav-icon">↗</span> Performance
+        </a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="admin-mini-profile">
+          <div class="avatar">AD</div>
+          <div>
+            <strong>Administrator</strong>
+            <small>Admin Portal</small>
+          </div>
+        </div>
+
+        <a href="../mainpage.html" class="nav-link home-link">
+          <span class="nav-icon">⌂</span> Back to Home
+        </a>
+      </div>
+    </aside>
+
+    <div class="main-wrapper">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button
+            type="button"
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Toggle sidebar"
+            aria-expanded="false"
+          >
+            ☰
+          </button>
+
+          <div>
+            <p class="breadcrumb">Admin Portal / Overview</p>
+            <h1>Dashboard</h1>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <span class="status-indicator"></span>
+          <span class="admin-label">Administrator</span>
+          <div class="avatar top-avatar">AD</div>
+        </div>
+      </header>
+
+      <main class="dashboard-content">
+        <section class="welcome-banner">
+          <div>
+            <p class="welcome-eyebrow">SPORTS ACADEMY MANAGEMENT SYSTEM</p>
+            <h2>Welcome to the Admin Dashboard!</h2>
+            <p>
+              Manage athletes, coaches, training programmes and academy
+              activities from one place.
+            </p>
+          </div>
+          <div class="welcome-decoration" aria-hidden="true">🏆</div>
+        </section>
+
+        <section class="section-block" aria-labelledby="overview-title">
+          <div class="section-title-row">
+            <div>
+              <h2 id="overview-title">Academy Overview</h2>
+              <p>A quick summary of your academy records.</p>
+            </div>
+            <span class="date-label" id="currentDate">Today</span>
+          </div>
+
+          <div class="stats-grid">
+            <article class="stat-card">
+              <div class="stat-icon stat-blue">♙</div>
+              <div class="stat-info">
+                <p>Total Athletes</p>
+                <h3 id="totalAthletes">0</h3>
+                <span class="stat-caption">Registered athlete records</span>
+              </div>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-icon stat-teal">♟</div>
+              <div class="stat-info">
+                <p>Total Coaches</p>
+                <h3 id="totalCoaches">0</h3>
+                <span class="stat-caption">Available coaching staff</span>
+              </div>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-icon stat-orange">◎</div>
+              <div class="stat-info">
+                <p>Sports Offered</p>
+                <h3 id="totalSports">0</h3>
+                <span class="stat-caption">Academy sports categories</span>
+              </div>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-icon stat-purple">▤</div>
+              <div class="stat-info">
+                <p>Total Courses</p>
+                <h3 id="totalCourses">0</h3>
+                <span class="stat-caption">Training programmes</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <div class="section-title-row">
+            <div>
+              <h2>Quick Actions</h2>
+              <p>Navigate directly to an admin module.</p>
+            </div>
+          </div>
+
+          <div class="quick-actions-grid">
+            <a href="athletes.html" class="action-card">
+              <span class="action-icon">♙</span>
+              <span class="action-text">
+                <strong>Manage Athletes</strong>
+                <small>View and maintain athlete records</small>
+              </span>
+              <span class="action-arrow">→</span>
+            </a>
+
+            <a href="coaches.html" class="action-card">
+              <span class="action-icon">♟</span>
+              <span class="action-text">
+                <strong>Manage Coaches</strong>
+                <small>Maintain coaching staff details</small>
+              </span>
+              <span class="action-arrow">→</span>
+            </a>
+
+            <a href="courses.html" class="action-card">
+              <span class="action-icon">▤</span>
+              <span class="action-text">
+                <strong>Manage Courses</strong>
+                <small>Organise academy programmes</small>
+              </span>
+              <span class="action-arrow">→</span>
+            </a>
+
+            <a href="schedule.html" class="action-card">
+              <span class="action-icon">▦</span>
+              <span class="action-text">
+                <strong>Training Schedule</strong>
+                <small>Review training sessions</small>
+              </span>
+              <span class="action-arrow">→</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <div class="section-title-row">
+            <div>
+              <h2>Module Status</h2>
+              <p>Available sections of the admin portal.</p>
+            </div>
+          </div>
+
+          <div class="module-status-grid">
+            <a href="sports.html" class="module-status-card">
+              <span class="module-status-icon">◎</span>
+              <div>
+                <strong>Sports Management</strong>
+                <p>Manage sports categories</p>
+              </div>
+              <span class="status-tag">Available</span>
+            </a>
+
+            <a href="attendance.html" class="module-status-card">
+              <span class="module-status-icon">✓</span>
+              <div>
+                <strong>Attendance</strong>
+                <p>Review attendance records</p>
+              </div>
+              <span class="status-tag">Available</span>
+            </a>
+
+            <a href="events.html" class="module-status-card">
+              <span class="module-status-icon">⚑</span>
+              <div>
+                <strong>Events</strong>
+                <p>Manage academy events</p>
+              </div>
+              <span class="status-tag">Available</span>
+            </a>
+
+            <a href="performance.html" class="module-status-card">
+              <span class="module-status-icon">↗</span>
+              <div>
+                <strong>Performance</strong>
+                <p>Maintain performance records</p>
+              </div>
+              <span class="status-tag">Available</span>
+            </a>
+          </div>
+        </section>
+
+        <footer class="dashboard-footer">
+          <p>
+            © <span id="footerYear">2026</span> Sports Academy Management System
+          </p>
+          <p>Admin Portal · Frontend Demonstration</p>
+        </footer>
+      </main>
+    </div>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <script src="js/admin.js"></script>
+  </body>
+</html>

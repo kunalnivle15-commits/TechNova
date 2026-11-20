@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#183B56" />
+
+    <title>Courses | Sports Academy</title>
+
+    <link rel="stylesheet" href="athlete.css" />
+    <script src="js/athlete.js" defer></script>
+  </head>
+
+  <body data-page="courses">
+    <a href="#main-content" class="skip-link"> Skip to main content </a>
+
+    <div class="app-shell">
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <a href="dashboard.html" class="sidebar-brand">
+          <img
+            src="../assets/logo.jpeg"
+            alt="Sports Academy logo"
+            class="sidebar-logo"
+          />
+          <span class="sidebar-brand-name">Sports Academy</span>
+        </a>
+
+        <nav class="nav-list" aria-label="Main navigation">
+          <a href="dashboard.html" class="nav-item">
+            <span>Dashboard</span>
+          </a>
+          <a href="courses.html" class="nav-item active" aria-current="page">
+            <span>My Courses</span>
+          </a>
+          <a href="statistics.html" class="nav-item">
+            <span>Statistics</span>
+          </a>
+          <a href="schedule.html" class="nav-item">
+            <span>Schedule</span>
+          </a>
+          <a href="events.html" class="nav-item">
+            <span>Events</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <p>Athlete Portal</p>
+          <span>Sports Academy Management</span>
+        </div>
+      </aside>
+
+      <!-- MAIN AREA -->
+      <div class="main-area">
+        <!-- TOPBAR -->
+        <header class="topbar">
+          <div class="topbar-heading">
+            <p class="topbar-label">ATHLETE PORTAL</p>
+            <h1 class="greeting">Courses</h1>
+          </div>
+
+          <div class="topbar-actions">
+            <div class="notif">
+              <button
+                type="button"
+                class="icon-btn notification-button"
+                id="notification-toggle"
+                aria-label="Open notifications"
+                aria-expanded="false"
+              >
+                <svg
+                  class="notification-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="21"
+                  height="21"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"
+                  ></path>
+                  <path d="M10 21h4"></path>
+                </svg>
+                <span class="badge" id="notification-count">0</span>
+              </button>
+
+              <section
+                class="notif-panel"
+                id="notification-panel"
+                aria-label="Notifications"
+                hidden
+              >
+                <div class="notif-head">
+                  <h2>Notifications</h2>
+                  <button
+                    type="button"
+                    class="link-btn"
+                    id="mark-notifications-read"
+                  >
+                    Mark all read
+                  </button>
+                </div>
+
+                <p class="demo-note">Demonstration notifications</p>
+
+                <div id="notification-list">
+                  <p class="empty-state">
+                    Your notifications will appear here.
+                  </p>
+                </div>
+              </section>
+            </div>
+
+            <div class="profile-wrap">
+              <button
+                type="button"
+                class="profile-btn"
+                id="profile-toggle"
+                aria-expanded="false"
+                aria-controls="profile-panel"
+              >
+                <span class="avatar" id="athlete-avatar">A</span>
+                <span class="profile-name" id="athlete-name">Athlete</span>
+                <span aria-hidden="true">⌄</span>
+              </button>
+
+              <section
+                class="profile-panel"
+                id="profile-panel"
+                aria-label="Athlete profile"
+                hidden
+              >
+                <div class="profile-head">
+                  <span class="avatar avatar--lg" id="profile-avatar">A</span>
+                  <div>
+                    <h2 id="profile-display-name">Athlete</h2>
+                    <p class="demo-note">Athlete account</p>
+                  </div>
+                </div>
+
+                <dl class="profile-details">
+                  <div>
+                    <dt>Sport</dt>
+                    <dd id="profile-sport">Not assigned</dd>
+                  </div>
+                  <div>
+                    <dt>Member ID</dt>
+                    <dd id="profile-member-id">ATH-001</dd>
+                  </div>
+                </dl>
+
+                <p class="demo-note">
+                  Sample profile information stored in this browser.
+                </p>
+              </section>
+            </div>
+          </div>
+        </header>
+
+        <!-- PAGE CONTENT -->
+        <main class="content" id="main-content">
+          <!-- PAGE INTRO -->
+          <section class="page-intro">
+            <div>
+              <p class="eyebrow">LEARN AND IMPROVE</p>
+              <h2>Explore Courses</h2>
+              <p>
+                Discover sports training programs and find the right course for
+                your goals.
+              </p>
+            </div>
+
+            <a href="dashboard.html" class="btn btn-ghost"> ← Dashboard </a>
+          </section>
+
+          <!-- COURSE SUMMARY -->
+          <section
+            class="stats-grid course-summary"
+            aria-label="Course summary"
+          >
+            <article class="stat-card">
+              <div class="stat-icon stat-icon--blue" aria-hidden="true">▤</div>
+              <div>
+                <p class="stat-label">Available Courses</p>
+                <p class="stat-value" id="available-course-count">0</p>
+              </div>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-icon stat-icon--teal" aria-hidden="true">✓</div>
+              <div>
+                <p class="stat-label">My Enrolments</p>
+                <p class="stat-value" id="my-enrolment-count">0</p>
+              </div>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-icon stat-icon--amber" aria-hidden="true">☆</div>
+              <div>
+                <p class="stat-label">Sports Offered</p>
+                <p class="stat-value" id="sports-offered-count">0</p>
+              </div>
+            </article>
+          </section>
+
+          <!-- MY ENROLLED COURSES -->
+          <section class="panel">
+            <div class="panel-head">
+              <div>
+                <h2>My Enrolled Courses</h2>
+                <p class="panel-sub">
+                  Quickly access the courses you have joined.
+                </p>
+              </div>
+            </div>
+
+            <div class="enrolment-list" id="my-courses-list">
+              <div class="empty-state">
+                <p>You haven't enrolled in a course yet.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- AVAILABLE COURSES -->
+          <section class="panel courses-panel">
+            <div class="panel-head">
+              <div>
+                <h2>All Courses</h2>
+                <p class="panel-sub">
+                  Browse training programs offered by the academy.
+                </p>
+              </div>
+            </div>
+
+            <!-- SEARCH AND FILTERS -->
+            <div class="course-filters">
+              <div class="filter-field search-field">
+                <label for="course-search">Search courses</label>
+                <input
+                  type="search"
+                  id="course-search"
+                  placeholder="Search by course or sport..."
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="filter-field">
+                <label for="sport-filter">Sport</label>
+                <select id="sport-filter">
+                  <option value="">All sports</option>
+                </select>
+              </div>
+
+              <div class="filter-field">
+                <label for="level-filter">Training level</label>
+                <select id="level-filter">
+                  <option value="">All levels</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Advanced">Advanced</option>
+                </select>
+              </div>
+
+              <div class="filter-field">
+                <label for="enrolment-filter">Enrolment</label>
+                <select id="enrolment-filter">
+                  <option value="">All courses</option>
+                  <option value="enrolled">Enrolled</option>
+                  <option value="available">Not enrolled</option>
+                </select>
+              </div>
+
+              <button
+                type="button"
+                class="btn btn-ghost filter-reset"
+                id="reset-course-filters"
+              >
+                Reset Filters
+              </button>
+            </div>
+
+            <!-- RESULTS INFORMATION -->
+            <div class="results-bar">
+              <p id="course-results-count" aria-live="polite">
+                Loading courses...
+              </p>
+            </div>
+
+            <!-- COURSE CARDS RENDER HERE -->
+            <div class="course-grid" id="course-list" aria-live="polite">
+              <div class="empty-state">
+                <p>Courses will appear here once the course data is loaded.</p>
+              </div>
+            </div>
+
+            <!-- NO RESULTS -->
+            <div class="empty-state" id="no-courses-message" hidden>
+              <h3>No courses found</h3>
+              <p>Try another search term or change your filters.</p>
+              <button
+                type="button"
+                class="btn btn-ghost"
+                id="clear-course-search"
+              >
+                Clear Search and Filters
+              </button>
+            </div>
+          </section>
+
+          <footer class="page-footer">
+            <p>Sports Academy Management System</p>
+            <p>Athlete Portal · Frontend Prototype</p>
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

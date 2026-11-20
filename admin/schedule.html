@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Manage sports training schedules in the Sports Academy Management System."
+    />
+    <title>Schedule Management | Admin Portal</title>
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body>
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo">SA</div>
+        <div>
+          <h2>Sports Academy</h2>
+          <p>Management System</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Admin navigation">
+        <p class="nav-heading">MAIN MENU</p>
+        <a href="dashboard.html" class="nav-link"
+          ><span class="nav-icon">▦</span> Dashboard</a
+        >
+        <a href="athletes.html" class="nav-link"
+          ><span class="nav-icon">♙</span> Athletes</a
+        >
+        <a href="coaches.html" class="nav-link"
+          ><span class="nav-icon">♟</span> Coaches</a
+        >
+        <a href="sports.html" class="nav-link"
+          ><span class="nav-icon">◎</span> Sports</a
+        >
+        <a href="courses.html" class="nav-link"
+          ><span class="nav-icon">▤</span> Courses</a
+        >
+        <a href="schedule.html" class="nav-link active"
+          ><span class="nav-icon">▦</span> Schedule</a
+        >
+        <a href="attendance.html" class="nav-link"
+          ><span class="nav-icon">✓</span> Attendance</a
+        >
+        <a href="events.html" class="nav-link"
+          ><span class="nav-icon">⚑</span> Events</a
+        >
+        <a href="performance.html" class="nav-link"
+          ><span class="nav-icon">↗</span> Performance</a
+        >
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="admin-mini-profile">
+          <div class="avatar">AD</div>
+          <div>
+            <strong>Administrator</strong>
+            <small>Admin Portal</small>
+          </div>
+        </div>
+        <a href="../mainpage.html" class="nav-link home-link">
+          <span class="nav-icon">⌂</span> Back to Home
+        </a>
+      </div>
+    </aside>
+
+    <div class="main-wrapper">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button
+            type="button"
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Toggle sidebar"
+            aria-expanded="false"
+          >
+            ☰
+          </button>
+          <div>
+            <p class="breadcrumb">Admin Portal / Operations</p>
+            <h1>Schedule Management</h1>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <span class="status-indicator"></span>
+          <span class="admin-label">Administrator</span>
+          <div class="avatar top-avatar">AD</div>
+        </div>
+      </header>
+
+      <main class="dashboard-content">
+        <section class="page-intro">
+          <div>
+            <h2>Training Schedule</h2>
+            <p>
+              Organise training sessions, coaches, timings and academy venues.
+            </p>
+          </div>
+
+          <button type="button" class="btn btn-primary" id="addScheduleBtn">
+            <span>＋</span> Add Session
+          </button>
+        </section>
+
+        <!-- Schedule Statistics -->
+        <section class="stats-grid">
+          <article class="stat-card">
+            <div class="stat-icon stat-blue">▦</div>
+            <div class="stat-info">
+              <p>Total Sessions</p>
+              <h3 id="scheduleTotal">0</h3>
+              <span class="stat-caption">All scheduled sessions</span>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-icon stat-teal">✓</div>
+            <div class="stat-info">
+              <p>Upcoming Sessions</p>
+              <h3 id="scheduleUpcoming">0</h3>
+              <span class="stat-caption">Future sessions</span>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-icon stat-orange">♟</div>
+            <div class="stat-info">
+              <p>Assigned Coaches</p>
+              <h3 id="scheduleCoaches">0</h3>
+              <span class="stat-caption">Unique assigned coaches</span>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-icon stat-purple">◎</div>
+            <div class="stat-info">
+              <p>Venues Used</p>
+              <h3 id="scheduleVenues">0</h3>
+              <span class="stat-caption">Unique training venues</span>
+            </div>
+          </article>
+        </section>
+
+        <!-- Schedule Filters -->
+        <section class="section-block">
+          <div class="section-title-row">
+            <div>
+              <h2>Training Sessions</h2>
+              <p>Review and update planned training activities.</p>
+            </div>
+          </div>
+
+          <div class="filter-panel">
+            <div class="form-group search-group">
+              <label for="scheduleSearch">Search sessions</label>
+              <input
+                type="search"
+                id="scheduleSearch"
+                placeholder="Search sport, coach, course or venue..."
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="scheduleSportFilter">Sport</label>
+              <select id="scheduleSportFilter">
+                <option value="">All sports</option>
+                <option>Athletics</option>
+                <option>Badminton</option>
+                <option>Basketball</option>
+                <option>Boxing Fitness</option>
+                <option>Cricket</option>
+                <option>Fitness</option>
+                <option>Football</option>
+                <option>Gymnastics</option>
+                <option>Rugby</option>
+                <option>Swimming</option>
+                <option>Table Tennis</option>
+                <option>Tennis</option>
+                <option>Volleyball</option>
+                <option>Yoga</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="scheduleDayFilter">Day</label>
+              <select id="scheduleDayFilter">
+                <option value="">All days</option>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+                <option value="Saturday">Saturday</option>
+                <option value="Sunday">Sunday</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="scheduleStatusFilter">Status</label>
+              <select id="scheduleStatusFilter">
+                <option value="">All statuses</option>
+                <option value="Scheduled">Scheduled</option>
+                <option value="Completed">Completed</option>
+                <option value="Cancelled">Cancelled</option>
+              </select>
+            </div>
+
+            <button
+              type="button"
+              class="btn btn-secondary"
+              id="resetScheduleFilters"
+            >
+              Reset Filters
+            </button>
+          </div>
+
+          <!-- Schedule Table -->
+          <div class="table-panel">
+            <div class="table-heading">
+              <div>
+                <h3>All Sessions</h3>
+                <p id="scheduleResultCount">Showing 0 sessions</p>
+              </div>
+
+              <button
+                type="button"
+                class="btn btn-secondary"
+                id="exportScheduleBtn"
+              >
+                Export CSV
+              </button>
+            </div>
+
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Session</th>
+                    <th>Sport</th>
+                    <th>Coach</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Venue</th>
+                    <th>Day</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+
+                <tbody id="scheduleTableBody">
+                  <tr>
+                    <td colspan="9" class="empty-state">
+                      Training sessions will appear here.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <footer class="dashboard-footer">
+          <p>
+            © <span class="current-year">2026</span> Sports Academy Management
+            System
+          </p>
+          <p>Admin Portal · Demonstration Records</p>
+        </footer>
+      </main>
+    </div>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Add/Edit Schedule Modal -->
+    <div class="modal-backdrop" id="scheduleModal" hidden>
+      <section
+        class="modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="scheduleModalTitle"
+      >
+        <div class="modal-header">
+          <div>
+            <p class="eyebrow">TRAINING OPERATIONS</p>
+            <h2 id="scheduleModalTitle">Add Session</h2>
+          </div>
+
+          <button
+            type="button"
+            class="modal-close"
+            id="closeScheduleModal"
+            aria-label="Close dialog"
+          >
+            ×
+          </button>
+        </div>
+
+        <form id="scheduleForm">
+          <input type="hidden" id="scheduleRecordId" />
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="scheduleTitle">Session name *</label>
+              <input
+                type="text"
+                id="scheduleTitle"
+                maxlength="100"
+                placeholder="e.g. Morning Football Training"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="scheduleSport">Sport *</label>
+              <select id="scheduleSport" required>
+                <option value="">Select sport</option>
+                <option>Athletics</option>
+                <option>Badminton</option>
+                <option>Basketball</option>
+                <option>Boxing Fitness</option>
+                <option>Cricket</option>
+                <option>Fitness</option>
+                <option>Football</option>
+                <option>Gymnastics</option>
+                <option>Rugby</option>
+                <option>Swimming</option>
+                <option>Table Tennis</option>
+                <option>Tennis</option>
+                <option>Volleyball</option>
+                <option>Yoga</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="scheduleCourse">Course / Batch</label>
+              <input
+                type="text"
+                id="scheduleCourse"
+                maxlength="100"
+                placeholder="e.g. Football Beginners"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="scheduleCoach">Assigned coach *</label>
+              <input
+                type="text"
+                id="scheduleCoach"
+                maxlength="100"
+                placeholder="Enter coach name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="scheduleDate">Session date *</label>
+              <input type="date" id="scheduleDate" required />
+            </div>
+
+            <div class="form-group">
+              <label for="scheduleDay">Day of week</label>
+              <select id="scheduleDay">
+                <option value="">Select day</option>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+                <option value="Saturday">Saturday</option>
+                <option value="Sunday">Sunday</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="scheduleStartTime">Start time *</label>
+              <input type="time" id="scheduleStartTime" required />
+            </div>
+
+            <div class="form-group">
+              <label for="scheduleEndTime">End time *</label>
+              <input type="time" id="scheduleEndTime" required />
+            </div>
+
+            <div class="form-group">
+              <label for="scheduleVenue">Venue *</label>
+              <input
+                type="text"
+                id="scheduleVenue"
+                maxlength="100"
+                placeholder="e.g. Main Football Ground"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="scheduleCapacity">Participant capacity</label>
+              <input
+                type="number"
+                id="scheduleCapacity"
+                min="1"
+                max="100000"
+                placeholder="e.g. 30"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="scheduleStatus">Status</label>
+              <select id="scheduleStatus">
+                <option value="Scheduled">Scheduled</option>
+                <option value="Completed">Completed</option>
+                <option value="Cancelled">Cancelled</option>
+              </select>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="scheduleNotes">Notes</label>
+              <textarea
+                id="scheduleNotes"
+                rows="3"
+                maxlength="500"
+                placeholder="Optional session instructions..."
+              ></textarea>
+            </div>
+          </div>
+
+          <p id="scheduleFormError" class="error-message" role="alert"></p>
+
+          <div class="modal-actions">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              id="cancelScheduleForm"
+            >
+              Cancel
+            </button>
+
+            <button type="submit" class="btn btn-primary" id="saveScheduleBtn">
+              Save Session
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <script src="js/admin.js"></script>
+  </body>
+</html>
